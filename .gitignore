@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+public
+*.log
+# Thumbnail cache files
+._*
+Thumbs.db
+
+.idea
+.vscode/
+
+dist
