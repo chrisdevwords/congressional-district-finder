@@ -1,5 +1,9 @@
 
+import getDistricts from './github/unitedstates/getDistricts';
+import getDistrictsByState from './github/unitedstates/getDistrictsByState';
 
-export function getDistricts(st) {
-    return Promise.resolve(['NY-1']);
-}
+
+export default {
+    getDistricts,
+    getDistrictsByState
+};
