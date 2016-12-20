@@ -29,6 +29,7 @@
   "author": "chrisedwards82@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "geolib": "^2.0.22",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   },
