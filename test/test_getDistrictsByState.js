@@ -41,7 +41,8 @@ describe('#getDistrictsByState', () => {
                 .catch(err => {
                    expect(err.message).to.equal(NO_DISTRICTS_FOUND);
                    done();
-                }).catch(done);
+                })
+                .catch(done);
         });
     });
 });

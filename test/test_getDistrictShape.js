@@ -1,9 +1,8 @@
 
-import { beforeEach, afterEach, describe, it } from 'mocha';
-import chai, { expect } from 'chai';
-import chaiAsPromised from 'chai-as-promised';
+import mocha from 'mocha';
+import chai from 'chai';
 import request from 'request-promise';
-import sinon from 'sinon'; // todo stub requests with mocks
+import sinon from 'sinon';
 
 import mockWV3 from './mock/github/unitedstates/districts/WV-3.json';
 import mockHI2 from './mock/github/unitedstates/districts/HI-2.json';
@@ -14,12 +13,27 @@ import getDistrictShape, {
     parseDistrictShape
 }  from '../src/github/unitedstates/getDistrictShape';
 
-chai.use(chaiAsPromised);
-chai.config.includeStack = true;
+
+const { beforeEach, afterEach, describe, it } = mocha;
+const { expect, config } = chai;
+
+config.includeStack = true;
 
 describe('#getDistrict', () => {
 
     context('with a valid district', () => {
+
+        beforeEach((done) => {
+            sinon
+                .stub(request, 'get')
+                .returns(Promise.resolve(mockOH2));
+            done();
+        });
+
+        afterEach((done) => {
+            request.get.restore();
+            done();
+        });
 
         it ('returns an array of objects with latitude and longitude', (done) => {
             getDistrictShape('OH-2')
@@ -60,13 +74,13 @@ describe('#getDistrict', () => {
 describe('#parseDistrict', () => {
 
     it('extracts the name from shape json', (done) => {
-        const result = parseDistrictShape(mockNY12)
+        const result = parseDistrictShape(mockNY12);
         expect(result.name).to.equal('New York 12th');
         done();
     });
 
     it('extracts the districtCode from shape json', (done) => {
-        const result = parseDistrictShape(mockWV3)
+        const result = parseDistrictShape(mockWV3);
         expect(result.districtCode).to.equal('WV-03');
         done();
     });
