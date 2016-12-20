@@ -1,6 +1,7 @@
 
 import getDistricts from './getDistricts';
 
+
 export const NO_DISTRICTS_FOUND = 'No districts found.';
 
 export default function getDistrictsByState(st) {
@@ -12,10 +13,12 @@ export default function getDistrictsByState(st) {
                     district.indexOf(ST) === 0
             )
         )
-        .then(districts => {
+        .then((districts) => {
             if (!districts.length) {
-                return Promise.reject(new Error(NO_DISTRICTS_FOUND));
+                return Promise.reject(
+                    new Error(NO_DISTRICTS_FOUND)
+                );
             }
             return districts;
-        })
+        });
 }

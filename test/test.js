@@ -1,4 +1,5 @@
 
+import { beforeEach, afterEach, describe, it } from 'mocha';
 import chai, { expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import request from 'request-promise';
@@ -15,11 +16,11 @@ describe('#getDistricts', () => {
     beforeEach(done => {
         sinon
             .stub(request, 'get')
-            .returns(Promise.resolve({body: mock}))
+            .returns(Promise.resolve({body: mock}));
         done();
     });
 
-    afterEach(done => {
+    afterEach((done) => {
         request.get.restore();
         done();
     });
@@ -29,20 +30,20 @@ describe('#getDistricts', () => {
             .to.eventually
             .be.an('array')
             .and.have.length.of(435)
-            .and.include('CA-22')
+            .and.include('CA-22');
     });
 });
 
 describe('#getDistrictsByState', () => {
 
-    beforeEach(done => {
+    beforeEach((done) => {
         sinon
             .stub(request, 'get')
-            .returns(Promise.resolve({body: mock}))
+            .returns(Promise.resolve({body: mock}));
         done();
     });
 
-    afterEach(done => {
+    afterEach((done) => {
         request.get.restore();
         done();
     });
@@ -58,12 +59,12 @@ describe('#getDistrictsByState', () => {
     });
 
     context('with an invalid state', ()=> {
-        it('throws an error', done => {
+        it('throws an error', (done) => {
             getDistrictsByState('FOO')
                 .catch(err => {
                    expect(err.message).to.equal(NO_DISTRICTS_FOUND);
                    done();
-                }).catch(done)
+                }).catch(done);
         });
     });
 });

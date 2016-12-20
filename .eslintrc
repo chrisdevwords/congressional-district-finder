@@ -1,0 +1,52 @@
+{
+    "rules": {
+        // General JavaScript //
+        "no-undef": [2],
+        "no-trailing-spaces": [1],
+        "space-before-blocks": [1, "always"],
+        "no-unused-expressions": [0],
+        "no-underscore-dangle": [0],
+        "quote-props": [1, "as-needed"],
+        "no-multi-spaces": [0],
+        "no-unused-vars": [1],
+        "no-loop-func": [0],
+        "key-spacing": [0],
+        "max-len": [1, 79],
+        "strict": [0],
+        "eol-last": [1],
+        "no-console": [1],
+        "indent": [1, 4, { "SwitchCase": 1 }],
+        "quotes": [1, "single", "avoid-escape"],
+        "curly": [0],
+        "comma-dangle": [0],
+        "semi": [0],
+        "padded-blocks": [0],
+        "spaced-comment": [0],
+
+        // ES6 //
+        "generator-star-spacing": 1,
+        "new-cap": 0,
+        "object-curly-spacing": 0,
+        "object-shorthand": 1,
+
+        // Babel //
+        "babel/new-cap": 1,
+        "babel/object-curly-spacing": [1, "always"],
+    },
+    "parserOptions": {
+         "ecmaFeatures": {
+             "experimentalObjectRestSpread": true
+         }
+    },
+    "plugins": [
+        "babel"
+    ],
+    "settings": {
+        "ecmascript": 6
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends" : "airbnb/base"
+}
