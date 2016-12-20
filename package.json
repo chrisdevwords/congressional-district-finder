@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "a node module for looking up congressional information based on location",
   "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisdevwords/who-are-my-congressmen"
+  },
   "scripts": {
     "test": "mocha ./test",
     "lint": "eslint src/",
