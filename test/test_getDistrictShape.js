@@ -57,7 +57,19 @@ describe('#getDistrict', () => {
 
     context('with an invalid district', () => {
 
-        it ('throws an error', (done) => {
+        beforeEach((done) => {
+            sinon
+                .stub(request, 'get')
+                .returns(Promise.reject({ statusCode: 404 }));
+            done();
+        });
+
+        afterEach((done) => {
+            request.get.restore();
+            done();
+        });
+
+        it('throws an error', (done) => {
             getDistrictShape('PA-22')
                 .then(() => {
                     done(Error('Promise should not resolve'));
