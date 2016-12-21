@@ -1,6 +1,6 @@
 
 import request from 'request-promise';
-//import parseGeoJSON from './parseGeoJSON';
+import flattenMultiPolygon from './flattenMultiPolygon';
 
 export const endpoint = (district) =>
     `https://theunitedstates.io/districts/cds/2016/${district}/shape.geojson`;
@@ -10,7 +10,8 @@ export function parseDistrictShape(data) {
         geometry = {},
         properties = { Code: '', District: '' }
     } = data;
-    const polygons = geometry.coordinates; //todo parseGeoJSON(geometry);
+    const { coordinates } = geometry;
+    const polygons = flattenMultiPolygon(coordinates);
     const districtCode = properties.Code;
     const name = properties.District;
     return { districtCode, name, polygons }
