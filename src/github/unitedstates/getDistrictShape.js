@@ -2,7 +2,7 @@
 import request from 'request-promise';
 import flattenMultiPolygon from './flattenMultiPolygon';
 
-export const endpoint = (district) =>
+export const endpoint = district =>
     `https://theunitedstates.io/districts/cds/2016/${district}/shape.geojson`;
 
 export function parseDistrictShape(data) {
@@ -26,9 +26,5 @@ export default function getDistrictShape(district) {
 
     return request
         .get(options)
-        .then(parseDistrictShape)
-        .catch((err) => {
-            //console.log( 'error', err.statusCode || err.cause && err.cause.code, Object.keys(err));
-            return Promise.reject(err);
-        });
+        .then(parseDistrictShape);
 }
