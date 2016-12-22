@@ -107,9 +107,13 @@ describe('#parseDistrictShape', () => {
     });
 
     it('parses the polygons from shape json', (done) => {
-        const result = parseDistrictShape(mockHI2);
-        expect(result.polygons)
+        const { polygons } = parseDistrictShape(mockHI2);
+        expect(polygons)
             .to.be.an('array');
+        expect(polygons.length).to.eq(9);
+        expect(polygons[0][0].length).to.eq(2);
+        expect(polygons[0][1][0]).to.eq(-156.052315);
+        expect(polygons[0][1][1]).to.eq(19.756836);
         done();
     });
 });
