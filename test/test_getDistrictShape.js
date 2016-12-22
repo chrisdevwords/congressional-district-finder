@@ -4,24 +4,23 @@ import chai from 'chai';
 import request from 'request-promise';
 import sinon from 'sinon';
 
-import mockWV3 from './mock/github/unitedstates/districts/WV-3.json';
-import mockHI2 from './mock/github/unitedstates/districts/HI-2.json';
-import mockNY12 from './mock/github/unitedstates/districts/NY-12.json';
-import mockOH2 from './mock/github/unitedstates/districts/OH-2.json';
-
 import getDistrictShape, {
     parseDistrictShape
 }  from '../src/github/unitedstates/getDistrictShape';
 
+import mockWV3 from './mock/github/unitedstates/districts/WV-3.json';
+import mockHI2 from './mock/github/unitedstates/districts/HI-2.json';
+import mockNY12 from './mock/github/unitedstates/districts/NY-12.json';
+import mockOH2 from './mock/github/unitedstates/districts/OH-2.json';
 
 const { beforeEach, afterEach, describe, it } = mocha;
 const { expect, config } = chai;
 
 config.includeStack = true;
 
-describe('#getDistrict', () => {
+describe('#getDistrictShape', () => {
 
-    context('with a valid district', () => {
+    context('with a valid district id', () => {
 
         beforeEach((done) => {
             sinon
@@ -35,7 +34,7 @@ describe('#getDistrict', () => {
             done();
         });
 
-        it ('returns an array of objects with latitude and longitude', (done) => {
+        it ('returns an array of multipolygon coordinates', (done) => {
             getDistrictShape('OH-2')
                 .then((result) => {
                     expect(result.polygons).to.be.an('array');
@@ -55,7 +54,7 @@ describe('#getDistrict', () => {
         });
     });
 
-    context('with an invalid district', () => {
+    context('with an invalid district id', () => {
 
         beforeEach((done) => {
             sinon
@@ -74,8 +73,9 @@ describe('#getDistrict', () => {
                 .then(() => {
                     done(Error('Promise should not resolve'));
                 })
-                .catch(err => {
-                    expect(err.statusCode).to.eq(404);
+                .catch((err) => {
+                    expect(err.statusCode)
+                        .to.eq(404);
                     done();
                 })
                 .catch(done);
@@ -83,23 +83,26 @@ describe('#getDistrict', () => {
     });
 });
 
-describe('#parseDistrict', () => {
+describe('#parseDistrictShape', () => {
 
-    it('extracts the name from shape json', (done) => {
+    it('parses the name from shape json', (done) => {
         const result = parseDistrictShape(mockNY12);
-        expect(result.name).to.equal('New York 12th');
+        expect(result.name)
+            .to.equal('New York 12th');
         done();
     });
 
-    it('extracts the districtCode from shape json', (done) => {
+    it('parses the districtCode from shape json', (done) => {
         const result = parseDistrictShape(mockWV3);
-        expect(result.districtCode).to.equal('WV-03');
+        expect(result.districtCode)
+            .to.equal('WV-03');
         done();
     });
 
-    it('extracts the polygons from shape json', (done) => {
+    it('parses the polygons from shape json', (done) => {
         const result = parseDistrictShape(mockHI2);
-        expect(result.polygons).to.be.an('array');
+        expect(result.polygons)
+            .to.be.an('array');
         done();
     });
 });
