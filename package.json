@@ -1,11 +1,11 @@
 {
-  "name": "who-are-my-congressmen",
+  "name": "congressional-district-finder",
   "version": "0.0.1",
-  "description": "a node module for looking up congressional information based on location",
+  "description": "a node module for finding a congressional district based on latitude and longitude",
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chrisdevwords/who-are-my-congressmen"
+    "url": "https://github.com/chrisdevwords/congressional-district-finder"
   },
   "scripts": {
     "test": "mocha ./test",
