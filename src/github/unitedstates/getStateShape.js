@@ -2,9 +2,8 @@
 import request from 'request-promise';
 import flattenMultiPolygon from './flattenMultiPolygon';
 
-
 export const endpoint = st =>
-    `https://theunitedstates.io/districts/cds/2016/${st}/shape.geojson`;
+    `https://theunitedstates.io/districts/states/${st}/shape.geojson`;
 
 export function parseStateShape({ coordinates }) {
     const polygons = flattenMultiPolygon(coordinates);
