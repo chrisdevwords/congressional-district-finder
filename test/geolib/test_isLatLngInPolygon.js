@@ -4,6 +4,7 @@ import chai from 'chai';
 
 import flattenMultiPolygon from '../../src/github/unitedstates/flattenMultiPolygon';
 import isLatLngInPolygon from '../../src/geolib/isLatLngInPolygon';
+import { INVALID_COORDINATES } from '../../src/geolib/GeolibError';
 
 import mockNY12 from '../mock/github/unitedstates/districts/NY-12.json';
 
@@ -33,6 +34,21 @@ describe('#isLatLngInPolygon', () => {
             const longitude = -73.9636098;
             expect(isLatLngInPolygon(latitude, longitude, districtShape))
                 .to.eq(false);
+            done();
+        });
+    });
+
+    context('with an invalid lat,lng', () => {
+
+        const { geometry } = mockNY12;
+        const { coordinates } = geometry;
+        const districtShape = flattenMultiPolygon(coordinates)[0];
+        const input = ['abcdefgh'];
+
+        it('throws an Invalid Coordinates Error', (done) => {
+            expect(() => {
+                isLatLngInPolygon(input[1], input[0], districtShape);
+            }).to.throw(INVALID_COORDINATES);
             done();
         });
     });

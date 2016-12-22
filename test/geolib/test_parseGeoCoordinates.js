@@ -14,7 +14,6 @@ const { describe, it } = mocha;
 describe('#parseGeoCoordinates', () => {
 
     context('with an array of coordinates from geoJSON', () => {
-
         it('correctly formats an object for geolib', (done) => {
             const input = [-84.568445, 39.222258];
             const parsed = parseGeoCoordinates(input);
@@ -27,7 +26,6 @@ describe('#parseGeoCoordinates', () => {
     });
 
     context('with an array not matching the required structure', () => {
-
         it('throws an error', (done) => {
             const coordinates = [
                 [
@@ -57,6 +55,7 @@ describe('#parseGeoCoordinates', () => {
             done();
         });
     });
+
     context('with a malformed string', ()=> {
         it('throws an error', ()=> {
             const input = '@-170.152789,52.835824/';
