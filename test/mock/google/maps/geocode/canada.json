@@ -1,0 +1,378 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "65",
+               "short_name" : "65",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Yukon 1",
+               "short_name" : "Yukon 1",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Beaver Creek",
+               "short_name" : "Beaver Creek",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Yukon",
+               "short_name" : "Yukon",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Yukon Territory",
+               "short_name" : "YT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "Y0B 1A0",
+               "short_name" : "Y0B 1A0",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "65 Yukon 1, Beaver Creek, YT Y0B 1A0, Canada",
+         "geometry" : {
+            "location" : {
+               "lat" : 62.3809285,
+               "lng" : -140.87577
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 62.3822774802915,
+                  "lng" : -140.8744210197085
+               },
+               "southwest" : {
+                  "lat" : 62.37957951970849,
+                  "lng" : -140.8771189802915
+               }
+            }
+         },
+         "place_id" : "ChIJw141qlmQTFERu7hbzStnRko",
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Beaver Creek",
+               "short_name" : "Beaver Creek",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Yukon, Unorganized",
+               "short_name" : "Yukon, Unorganized",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Yukon",
+               "short_name" : "Yukon",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Yukon Territory",
+               "short_name" : "YT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "Y0B",
+               "short_name" : "Y0B",
+               "types" : [ "postal_code", "postal_code_prefix" ]
+            }
+         ],
+         "formatted_address" : "Beaver Creek, YT Y0B, Canada",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 62.405565,
+                  "lng" : -140.8325939
+               },
+               "southwest" : {
+                  "lat" : 62.353641,
+                  "lng" : -140.9529089
+               }
+            },
+            "location" : {
+               "lat" : 62.38375300000001,
+               "lng" : -140.875303
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 62.405565,
+                  "lng" : -140.8325939
+               },
+               "southwest" : {
+                  "lat" : 62.353641,
+                  "lng" : -140.9529089
+               }
+            }
+         },
+         "place_id" : "ChIJMzywZVmQTFERLR7lM_0x0oU",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Y0B 1A0",
+               "short_name" : "Y0B 1A0",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Beaver Creek",
+               "short_name" : "Beaver Creek",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Yukon, Unorganized",
+               "short_name" : "Yukon, Unorganized",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "Yukon",
+               "short_name" : "Yukon",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Yukon Territory",
+               "short_name" : "YT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Beaver Creek, YT Y0B 1A0, Canada",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 63.2066038,
+                  "lng" : -138.7980698
+               },
+               "southwest" : {
+                  "lat" : 61.6794787,
+                  "lng" : -140.9033219
+               }
+            },
+            "location" : {
+               "lat" : 62.2270546,
+               "lng" : -140.101291
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 63.2066038,
+                  "lng" : -138.7980698
+               },
+               "southwest" : {
+                  "lat" : 61.6794787,
+                  "lng" : -140.9033219
+               }
+            }
+         },
+         "place_id" : "ChIJY88DX1mQTFERYY2Njl72lMA",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Y0B",
+               "short_name" : "Y0B",
+               "types" : [ "postal_code", "postal_code_prefix" ]
+            },
+            {
+               "long_name" : "Yukon",
+               "short_name" : "Yukon",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Yukon Territory",
+               "short_name" : "YT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Yukon Territory Y0B, Canada",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 69.64528299999999,
+                  "lng" : -129.7849278
+               },
+               "southwest" : {
+                  "lat" : 59.99689,
+                  "lng" : -141.00187
+               }
+            },
+            "location" : {
+               "lat" : 64.27569509999999,
+               "lng" : -136.2455874
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 69.64528299999999,
+                  "lng" : -129.7849278
+               },
+               "southwest" : {
+                  "lat" : 59.99689,
+                  "lng" : -141.00187
+               }
+            }
+         },
+         "place_id" : "ChIJt0dOe5E8RFERshM1R4au-_U",
+         "types" : [ "postal_code", "postal_code_prefix" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Yukon",
+               "short_name" : "Yukon",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Yukon Territory",
+               "short_name" : "YT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Yukon, YT, Canada",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 70.50020309999999,
+                  "lng" : -123.8009179
+               },
+               "southwest" : {
+                  "lat" : 59.996889,
+                  "lng" : -141.00187
+               }
+            },
+            "location" : {
+               "lat" : 64.2823274,
+               "lng" : -135
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 69.64649799999999,
+                  "lng" : -123.8009179
+               },
+               "southwest" : {
+                  "lat" : 59.996889,
+                  "lng" : -141.00187
+               }
+            }
+         },
+         "place_id" : "ChIJzXr4RmEEQ1ERh67pSMMsVMU",
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Yukon Territory",
+               "short_name" : "YT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Yukon Territory, Canada",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 70.50020309999999,
+                  "lng" : -123.8009179
+               },
+               "southwest" : {
+                  "lat" : 59.996889,
+                  "lng" : -141.00187
+               }
+            },
+            "location" : {
+               "lat" : 64.2823274,
+               "lng" : -135
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 69.64649799999999,
+                  "lng" : -123.8009179
+               },
+               "southwest" : {
+                  "lat" : 59.996889,
+                  "lng" : -141.00187
+               }
+            }
+         },
+         "place_id" : "ChIJiYtStJiBF1ER6pbMYdWcFC4",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Canada",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 83.63809999999999,
+                  "lng" : -50.9766
+               },
+               "southwest" : {
+                  "lat" : 41.6765559,
+                  "lng" : -141.00187
+               }
+            },
+            "location" : {
+               "lat" : 56.130366,
+               "lng" : -106.346771
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 70,
+                  "lng" : -50
+               },
+               "southwest" : {
+                  "lat" : 42,
+                  "lng" : -142
+               }
+            }
+         },
+         "place_id" : "ChIJ2WrMN9MDDUsRpY9Doiq3aJk",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

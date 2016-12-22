@@ -1,0 +1,5 @@
+{
+   "error_message" : "Invalid request. Missing the 'address', 'bounds', 'components', 'latlng' or 'place_id' parameter.",
+   "results" : [],
+   "status" : "INVALID_REQUEST"
+}
