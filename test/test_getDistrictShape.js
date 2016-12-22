@@ -68,6 +68,13 @@ describe('#getDistrictShape', () => {
             done();
         });
 
+        it.skip('throws an error without making a request', (done) => {
+            // need to cdache district ids from getDistricts
+            // check list of district ids before making http request
+            // spy on request and verify it's not called
+            done(Error('Test not complete'));
+        });
+
         it('throws an error', (done) => {
             getDistrictShape('PA-22')
                 .then(() => {
