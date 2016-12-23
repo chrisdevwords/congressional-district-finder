@@ -101,8 +101,18 @@ describe('house.gov pagescraper', () =>{
                 done(Error('Test not complete'));
             });
 
-            it.skip('rejects with a no districts found error', (done) => {
-                done(Error('Test not complete'));
+            it('rejects with a 404 if no districts found', (done) => {
+                const badZip = 99999;
+                getDistrictsInZip(badZip)
+                    .then(() => {
+                        done(Error('Promise should be rejected'));
+                    })
+                    .catch(({ statusCode, message }) => {
+                        expect(statusCode).to.eq(404);
+                        expect(message).to.eq(NO_RESULTS_ZIP(badZip));
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });
@@ -133,7 +143,7 @@ describe('house.gov pagescraper', () =>{
 
         context('with a unsuccessful result', () => {
             it('can parse a no results message', (done) => {
-                openMock({ uri:endpoint(404) })
+                openMock({ uri:endpoint(99999) })
                     .then((html) => {
                         const result = scrapePage(html, 99999);
                         expect(result).to.be.an('array');

@@ -58,5 +58,14 @@ export function scrapePage(html, zip) {
 export default function getDistrictsInZip(zip) {
     return request
         .get({ uri: endpoint(zip) })
-        .then((html) => scrapePage(html, zip));
+        .then(html => scrapePage(html, zip))
+        .then((result) => {
+            if (result.length) {
+                return result;
+            }
+            return Promise.reject({
+                statusCode: 404,
+                message: NO_RESULTS_ZIP(zip)
+            });
+        });
 }
