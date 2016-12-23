@@ -1,5 +1,7 @@
 
 
+import fs from 'fs';
+import PATH from 'path';
 import mocha from 'mocha';
 import chai from 'chai';
 import request from 'request-promise';
@@ -9,21 +11,38 @@ import getDistrictsInZip, {
     parsePage
 }  from '../../../src/house/gov/getDistrictsInZip';
 
-
 const { beforeEach, afterEach, describe, it } = mocha;
 const { expect, config } = chai;
 
 config.includeStack = true;
+
+
+const openMock = (options) => {
+
+    const id = options.uri.split('=').pop();
+    const ROOT = '../../';
+    const filePath = PATH.resolve(__dirname, ROOT, `mock/gov/house/${id}.html`);
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, (error, data) => {
+            if(error) {
+                reject(error);
+            } else {
+                resolve(data.toString());
+            }
+        });
+    });
+};
 
 describe('#getDistrictsInZip', () => {
 
     context('with a valid zip code', () => {
 
         beforeEach((done) => {
+
             sinon
-                .stub(request, 'get')
-                .returns(Promise.resolve({}));
+                .stub(request, 'get', openMock);
             done();
+
         });
 
         afterEach((done) => {
@@ -31,8 +50,13 @@ describe('#getDistrictsInZip', () => {
             done();
         });
 
-        it.skip('can parse a single district', (done) => {
-            done('Test not complete');
+        it('can parse a single district', (done) => {
+            getDistrictsInZip(92373)
+                .then((data)=> {
+                    expect(data).to.be.a.string;
+                    //done();
+                    done(Error('Test not complete'));
+                }).catch(done);
         });
 
         it.skip('can parse multiple districts', (done) => {

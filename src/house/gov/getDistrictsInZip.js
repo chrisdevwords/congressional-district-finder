@@ -11,8 +11,8 @@ export function parseDistrictCode(val) {
 
 export function parsePage(body) {
     // todo matching district codes are in an array in inline js
-    console.log(body);
-    return [];
+    //console.log(body);
+    return body;
 }
 
 export default function getDistrictsInZip(zip) {
