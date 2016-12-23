@@ -90,14 +90,22 @@ describe('house.gov pagescraper', () =>{
                 done();
             });
 
+            it('rejects with an invalid zipcode error', (done) => {
+                getDistrictsInZip('invalid')
+                    .then(() => {
+                        done(Error('Promise should be rejected'));
+                    })
+                    .catch(({ message }) => {
+                        expect(message).to.eq(INVALID_ZIP('invalid'));
+                        done();
+                    })
+                    .catch(done);
+            });
+
             it.skip('rejects with an invalid zipcode error without making a request', (done) => {
                 // valdiate zip code with regex
                 // check before making http request
                 // spy on request and verify it's not called
-                done(Error('Test not complete'));
-            });
-
-            it.skip('rejects with an invalid zipcode error', (done) => {
                 done(Error('Test not complete'));
             });
 
