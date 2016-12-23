@@ -8,6 +8,7 @@ import request from 'request-promise';
 import sinon from 'sinon';
 
 import getDistrictsInZip, {
+    endpoint,
     scrapePage,
     parseDistrictCode,
     INVALID_DISTRICT_CODE_STRING,
@@ -109,20 +110,44 @@ describe('house.gov pagescraper', () =>{
     describe('#scrapePage', () => {
 
         context('with a successful result', () => {
-            it.skip('can extract a single district code', (done) => {
-                done(Error('Test not complete'));
+            it('can extract a single district code', (done) => {
+                openMock({ uri:endpoint(20013) })
+                    .then((html) => {
+                        const result = scrapePage(html, 20013);
+                        expect(result[0]).to.eq('DC-0');
+                        expect(result.length).to.eq(1);
+                        done();
+                    }).catch(done);
             });
-            it.skip('can extract multiple district codes', (done) => {
-                done(Error('Test not complete'));
+            it('can extract multiple district codes', (done) => {
+                openMock({ uri:endpoint(11211) })
+                    .then((html) => {
+                        const result = scrapePage(html, 11211);
+                        expect(result[0]).to.eq('NY-7');
+                        expect(result[1]).to.eq('NY-12');
+                        expect(result.length).to.eq(2);
+                        done();
+                    }).catch(done);
             });
         });
 
         context('with a unsuccessful result', () => {
-            it.skip('can parse a no results message', (done) => {
-                done(Error('Test not complete'));
+            it('can parse a no results message', (done) => {
+                openMock({ uri:endpoint(404) })
+                    .then((html) => {
+                        const result = scrapePage(html, 99999);
+                        expect(result).to.be.an('array');
+                        expect(result.length).to.eq(0);
+                        done();
+                    }).catch(done);
             });
-            it.skip('can parse an invalid zip code error', (done) => {
-                done(Error('Test not complete'));
+            it('can parse an invalid zip code error', (done) => {
+                openMock({ uri:endpoint('invalid') })
+                    .then((html) => {
+                        expect(() => {scrapePage(html, 'foo')})
+                            .to.throw(INVALID_ZIP('foo'));
+                        done();
+                    }).catch(done);
             });
         });
     });

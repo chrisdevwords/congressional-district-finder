@@ -35,11 +35,22 @@ export function parseDistrictCode(val) {
     return `${st}-${Number(num)}`;
 }
 
-export function scrapePage(body) {
+export function scrapePage(html, zip) {
+
+    const expected404Msg = `The ZIP code ${zip}  was not found.`;
+
+    if (html.indexOf(expected404Msg) > -1) {
+        return [];
+    }
+
+    if (html.indexOf('invalid Zip Code') > -1) {
+        throw new Error(INVALID_ZIP(zip));
+    }
+
     const startStr = 'districts=[';
-    const start = body.indexOf(startStr) + startStr.length;
-    const end = body.indexOf('];', start);
-    const data = body.substring(start, end).split(',');
+    const start = html.indexOf(startStr) + startStr.length;
+    const end = html.indexOf('];', start);
+    const data = html.substring(start, end).split(',');
     return data
         .map(parseDistrictCode);
 }
@@ -47,5 +58,5 @@ export function scrapePage(body) {
 export default function getDistrictsInZip(zip) {
     return request
         .get({ uri: endpoint(zip) })
-        .then(scrapePage);
+        .then((html) => scrapePage(html, zip));
 }
