@@ -1,0 +1,353 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Avenida Lomas Verdes",
+               "short_name" : "Avenida Lomas Verdes",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Juan Sánchez",
+               "short_name" : "Juan Sánchez",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Guaynabo",
+               "short_name" : "Guaynabo",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "00966",
+               "short_name" : "00966",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "PR-177 & Av. Nte., Guaynabo, Bayamón 00966, Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.3849505,
+                  "lng" : -66.1255354
+               },
+               "southwest" : {
+                  "lat" : 18.3846595,
+                  "lng" : -66.1297613
+               }
+            },
+            "location" : {
+               "lat" : 18.3849,
+               "lng" : -66.1276702
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.3861539802915,
+                  "lng" : -66.1255354
+               },
+               "southwest" : {
+                  "lat" : 18.3834560197085,
+                  "lng" : -66.1297613
+               }
+            }
+         },
+         "place_id" : "ChIJo7XvO5NpA4wRm8hA0wia448",
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Juan Sánchez",
+               "short_name" : "Juan Sánchez",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Juan Sánchez, Bayamón, Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.424656,
+                  "lng" : -66.1183599
+               },
+               "southwest" : {
+                  "lat" : 18.3767349,
+                  "lng" : -66.1597259
+               }
+            },
+            "location" : {
+               "lat" : 18.4021154,
+               "lng" : -66.1355775
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.424656,
+                  "lng" : -66.1183599
+               },
+               "southwest" : {
+                  "lat" : 18.3767349,
+                  "lng" : -66.1597259
+               }
+            }
+         },
+         "place_id" : "ChIJ3W-kG4dpA4wR50KxKXZWBSY",
+         "types" : [ "political", "sublocality", "sublocality_level_1" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Buena Vista",
+               "short_name" : "Buena Vista",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Bayamón, Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.4309981,
+                  "lng" : -66.1183599
+               },
+               "southwest" : {
+                  "lat" : 18.328316,
+                  "lng" : -66.2094864
+               }
+            },
+            "location" : {
+               "lat" : 18.3691963,
+               "lng" : -66.1659674
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.4309981,
+                  "lng" : -66.1183599
+               },
+               "southwest" : {
+                  "lat" : 18.328316,
+                  "lng" : -66.2094864
+               }
+            }
+         },
+         "place_id" : "ChIJxyvnWxJqA4wR2qP6mDSH8iw",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "00959",
+               "short_name" : "00959",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Bayamón, 00959, Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.4139169,
+                  "lng" : -66.124021
+               },
+               "southwest" : {
+                  "lat" : 18.357594,
+                  "lng" : -66.196951
+               }
+            },
+            "location" : {
+               "lat" : 18.3902046,
+               "lng" : -66.1504497
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.4139169,
+                  "lng" : -66.124021
+               },
+               "southwest" : {
+                  "lat" : 18.357594,
+                  "lng" : -66.196951
+               }
+            }
+         },
+         "place_id" : "ChIJlcliOwlqA4wRW4EqjTvdPvg",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Bayamón",
+               "short_name" : "Bayamón",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Bayamón, Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.4309981,
+                  "lng" : -66.1183599
+               },
+               "southwest" : {
+                  "lat" : 18.2587968,
+                  "lng" : -66.2135371
+               }
+            },
+            "location" : {
+               "lat" : 18.389396,
+               "lng" : -66.16532239999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.4309981,
+                  "lng" : -66.1183599
+               },
+               "southwest" : {
+                  "lat" : 18.2587968,
+                  "lng" : -66.2135371
+               }
+            }
+         },
+         "place_id" : "ChIJpVNddcFBA4wRBiWfz-BFWPc",
+         "types" : [ "administrative_area_level_1", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "San Juan-Caguas-Guaynabo, PR",
+               "short_name" : "San Juan-Caguas-Guaynabo, PR",
+               "types" : [ "political" ]
+            },
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "San Juan-Caguas-Guaynabo, PR, Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.494199,
+                  "lng" : -65.65807099999999
+               },
+               "southwest" : {
+                  "lat" : 17.9818544,
+                  "lng" : -66.9684281
+               }
+            },
+            "location" : {
+               "lat" : 18.2752311,
+               "lng" : -66.1415263
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.494199,
+                  "lng" : -65.65807099999999
+               },
+               "southwest" : {
+                  "lat" : 17.9818544,
+                  "lng" : -66.9684281
+               }
+            }
+         },
+         "place_id" : "ChIJe2ZaMKlAA4wRvncfBTLz5bU",
+         "types" : [ "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Puerto Rico",
+               "short_name" : "PR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Puerto Rico",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 18.5160099,
+                  "lng" : -65.2211099
+               },
+               "southwest" : {
+                  "lat" : 17.88124,
+                  "lng" : -67.95158169999999
+               }
+            },
+            "location" : {
+               "lat" : 18.220833,
+               "lng" : -66.590149
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 18.5160099,
+                  "lng" : -65.2211099
+               },
+               "southwest" : {
+                  "lat" : 17.8814325,
+                  "lng" : -67.4842398
+               }
+            }
+         },
+         "place_id" : "ChIJ-aeSGyaWAowRGpsEGCjsNvM",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

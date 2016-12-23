@@ -1,0 +1,427 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Old Village Lane",
+               "short_name" : "Old Village Ln",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Unionville",
+               "short_name" : "Unionville",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Farmington",
+               "short_name" : "Farmington",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Hartford County",
+               "short_name" : "Hartford County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "06085",
+               "short_name" : "06085",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Old Village Ln, Unionville, CT 06085, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 41.730308,
+                  "lng" : -72.898088
+               },
+               "southwest" : {
+                  "lat" : 41.7295322,
+                  "lng" : -72.8986151
+               }
+            },
+            "location" : {
+               "lat" : 41.7299084,
+               "lng" : -72.8983743
+            },
+            "location_type" : "GEOMETRIC_CENTER",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 41.7312690802915,
+                  "lng" : -72.89700256970849
+               },
+               "southwest" : {
+                  "lat" : 41.7285711197085,
+                  "lng" : -72.89970053029151
+               }
+            }
+         },
+         "place_id" : "ChIJwWzI-_-v54kRDpsEvVcIAcc",
+         "types" : [ "route" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Farmington",
+               "short_name" : "Farmington",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Hartford County",
+               "short_name" : "Hartford County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Farmington, CT, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 41.7764978,
+                  "lng" : -72.76196879999999
+               },
+               "southwest" : {
+                  "lat" : 41.6878989,
+                  "lng" : -72.908546
+               }
+            },
+            "location" : {
+               "lat" : 41.7360305,
+               "lng" : -72.79502699999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 41.77604360000001,
+                  "lng" : -72.76196879999999
+               },
+               "southwest" : {
+                  "lat" : 41.6878989,
+                  "lng" : -72.9084811
+               }
+            }
+         },
+         "place_id" : "ChIJC6C1qxau54kRp6JuTrLSjNE",
+         "types" : [ "locality", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "06085",
+               "short_name" : "06085",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "Unionville",
+               "short_name" : "Unionville",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Farmington",
+               "short_name" : "Farmington",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Hartford County",
+               "short_name" : "Hartford County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Unionville, CT 06085, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 41.77619610000001,
+                  "lng" : -72.859852
+               },
+               "southwest" : {
+                  "lat" : 41.7172721,
+                  "lng" : -72.90848
+               }
+            },
+            "location" : {
+               "lat" : 41.7431804,
+               "lng" : -72.8929
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 41.77619610000001,
+                  "lng" : -72.859852
+               },
+               "southwest" : {
+                  "lat" : 41.7172721,
+                  "lng" : -72.90848
+               }
+            }
+         },
+         "place_id" : "ChIJCaGeZ42v54kRPf9hBrYU4Aw",
+         "types" : [ "postal_code" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Hartford County",
+               "short_name" : "Hartford County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Hartford County, CT, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.038854,
+                  "lng" : -72.40812799999999
+               },
+               "southwest" : {
+                  "lat" : 41.5446979,
+                  "lng" : -73.02953699999999
+               }
+            },
+            "location" : {
+               "lat" : 41.7924343,
+               "lng" : -72.8042797
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.038854,
+                  "lng" : -72.40812799999999
+               },
+               "southwest" : {
+                  "lat" : 41.5446979,
+                  "lng" : -73.02953699999999
+               }
+            }
+         },
+         "place_id" : "ChIJtxC3p6qs54kRIvK-2bctar0",
+         "types" : [ "administrative_area_level_2", "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Hartford-West Hartford-East Hartford, CT",
+               "short_name" : "Hartford-West Hartford-East Hartford, CT",
+               "types" : [ "political" ]
+            },
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Hartford-West Hartford-East Hartford, CT, CT, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.0388597,
+                  "lng" : -72.09922899999999
+               },
+               "southwest" : {
+                  "lat" : 41.4147701,
+                  "lng" : -73.141555
+               }
+            },
+            "location" : {
+               "lat" : 41.6710781,
+               "lng" : -72.5204827
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.0388597,
+                  "lng" : -72.09922899999999
+               },
+               "southwest" : {
+                  "lat" : 41.4147701,
+                  "lng" : -73.141555
+               }
+            }
+         },
+         "place_id" : "ChIJTfPSdUhR5okR4r7MNs3Hg5o",
+         "types" : [ "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Hartford-West Hartford-East Hartford, CT",
+               "short_name" : "Hartford-West Hartford-East Hartford, CT",
+               "types" : [ "political" ]
+            },
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Hartford-West Hartford-East Hartford, CT, CT, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.0388597,
+                  "lng" : -72.09922899999999
+               },
+               "southwest" : {
+                  "lat" : 41.2556464,
+                  "lng" : -73.02953699999999
+               }
+            },
+            "location" : {
+               "lat" : 41.763179,
+               "lng" : -72.61511689999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.0388597,
+                  "lng" : -72.09922899999999
+               },
+               "southwest" : {
+                  "lat" : 41.2556464,
+                  "lng" : -73.02953699999999
+               }
+            }
+         },
+         "place_id" : "ChIJq5CsmRlR5okRyWyjXxjfmto",
+         "types" : [ "political" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "Connecticut",
+               "short_name" : "CT",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Connecticut, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 42.050587,
+                  "lng" : -71.787239
+               },
+               "southwest" : {
+                  "lat" : 40.950943,
+                  "lng" : -73.72777499999999
+               }
+            },
+            "location" : {
+               "lat" : 41.6032207,
+               "lng" : -73.087749
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.050539,
+                  "lng" : -71.787239
+               },
+               "southwest" : {
+                  "lat" : 40.9869801,
+                  "lng" : -73.72777499999999
+               }
+            }
+         },
+         "place_id" : "ChIJpVER8hFT5okR5XBhBVttmq4",
+         "types" : [
+            "administrative_area_level_1",
+            "establishment",
+            "point_of_interest",
+            "political"
+         ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "United States",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 71.5388001,
+                  "lng" : -66.885417
+               },
+               "southwest" : {
+                  "lat" : 18.7763,
+                  "lng" : 170.5957
+               }
+            },
+            "location" : {
+               "lat" : 37.09024,
+               "lng" : -95.712891
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 49.38,
+                  "lng" : -66.94
+               },
+               "southwest" : {
+                  "lat" : 25.82,
+                  "lng" : -124.39
+               }
+            }
+         },
+         "place_id" : "ChIJCzYy5IS16lQRQrfeQ5K5Oxw",
+         "types" : [ "country", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
