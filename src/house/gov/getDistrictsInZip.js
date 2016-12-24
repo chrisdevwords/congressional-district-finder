@@ -17,6 +17,7 @@ export const endpoint = zip =>
 export function parseDistrictCode(val) {
 
     if (!val) {
+        // eslint-disable-next-line babel/new-cap
         throw new Error(INVALID_DISTRICT_CODE_STRING(val));
     }
 
@@ -29,6 +30,7 @@ export function parseDistrictCode(val) {
         isNaN(num[0]) ||
         num[0].length > 2
     ) {
+        // eslint-disable-next-line babel/new-cap
         throw new Error(INVALID_DISTRICT_CODE_STRING(val));
     }
 
@@ -44,6 +46,7 @@ export function scrapePage(html, zip) {
     }
 
     if (html.indexOf('invalid Zip Code') > -1) {
+        // eslint-disable-next-line babel/new-cap
         throw new Error(INVALID_ZIP(zip));
     }
 
@@ -65,6 +68,7 @@ export default function getDistrictsInZip(zip) {
             }
             return Promise.reject({
                 statusCode: 404,
+                // eslint-disable-next-line babel/new-cap
                 message: NO_RESULTS_ZIP(zip)
             });
         });
