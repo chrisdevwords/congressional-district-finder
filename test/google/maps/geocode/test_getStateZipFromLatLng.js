@@ -28,7 +28,7 @@ describe('Google geocode helper', () => {
             beforeEach((done) => {
                 sinon
                     .stub(request, 'get')
-                    .returns(Promise.resolve({}));
+                    .returns(Promise.resolve(mock6085));
                 done();
             });
 
@@ -37,12 +37,31 @@ describe('Google geocode helper', () => {
                 done();
             });
 
-            it.skip('can extract a state id', (done) => {
-                done('Test not complete');
+            it('can extract a state id', (done) => {
+                getStateZipFromLatLng(41.730308, -72.898088)
+                    .then((result) => {
+                        expect(result.state).to.eq('CT');
+                        done();
+                    })
+                    .catch(done);
             });
 
-            it.skip('can extract a zip code', (done) => {
-                done('Test not complete');
+            it('can extract a zip code', (done) => {
+                getStateZipFromLatLng(41.730308, -72.898088)
+                    .then(({ zip }) => {
+                        expect(zip).to.eq('06085');
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('can extract a country', (done) => {
+                getStateZipFromLatLng(41.730308, -72.898088)
+                    .then(({ country }) => {
+                        expect(country).to.eq('US');
+                        done();
+                    })
+                    .catch(done);
             });
         });
 

@@ -2,7 +2,7 @@
 import request from 'request-promise';
 
 const endpoint = (lat, lng) =>
-    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}`
+    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}`;
 
 export function parseLatLngJSON({ results }) {
 
