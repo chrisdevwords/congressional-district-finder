@@ -1,8 +1,15 @@
 
 import request from 'request-promise';
 
-const endpoint = (lat, lng) =>
+
+export const endpoint = (lat, lng) =>
     `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}`;
+
+export const NO_RESULTS_FOUND = (lat, lng) =>
+    `No results found for latitude: "${lat}", longitude: "${lng}"`;
+
+export const INVALID_REQUEST = (lat, lng) =>
+    `Invalid parameters for latitude: "${lat}", longitude: "${lng}".`;
 
 export function parseLatLngJSON({ results }) {
 
@@ -51,6 +58,27 @@ export default function getStateZipFromLatLng(lat, lng) {
         .get({
             json: true,
             uri: endpoint(lat, lng)
+        })
+        .then((data) => {
+            const { status } = data;
+            switch (status) {
+                case 'ZERO_RESULTS':
+                    return Promise.reject({
+                        statusCode: 404,
+                        // eslint-disable-next-line babel/new-cap
+                        message: NO_RESULTS_FOUND(lat, lng)
+                    });
+                case 'INVALID_REQUEST':
+                    return Promise.reject({
+                        statusCode: 400,
+                        // eslint-disable-next-line babel/new-cap
+                        message: INVALID_REQUEST(lat, lng)
+                    });
+                case 'OK':
+                default :
+                    return data;
+
+            }
         })
         .then(parseLatLngJSON);
 }

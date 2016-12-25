@@ -5,7 +5,9 @@ import request from 'request-promise';
 import sinon from 'sinon';
 
 import getStateZipFromLatLng, {
-    parseLatLngJSON
+    parseLatLngJSON,
+    NO_RESULTS_FOUND,
+    INVALID_REQUEST,
 }  from '../../../../src/google/maps/geocode/getStateZipFromLatLng';
 
 import mock11211 from '../../../mock/google/maps/geocode/11211.json';
@@ -65,12 +67,42 @@ describe('Google geocode helper', () => {
             });
         });
 
+        context('with a lat,lng that yields no results', () => {
+
+            beforeEach((done) => {
+                sinon
+                    .stub(request, 'get')
+                    .returns(Promise.resolve(mock404));
+                done();
+            });
+
+            afterEach((done) => {
+                request.get.restore();
+                done();
+            });
+
+            it('rejects with a 404 and message', (done) => {
+                const lat = 78.2162792;
+                const lng = -171.869262;
+                getStateZipFromLatLng(lat, lng)
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(({ statusCode, message }) => {
+                        expect(statusCode).to.eq(404);
+                        expect(message).to.eq(NO_RESULTS_FOUND(lat, lng));
+                        done();
+                    })
+                    .catch(done);
+            });
+        });
+
         context('with an invalid lat,lng', () => {
 
             beforeEach((done) => {
                 sinon
                     .stub(request, 'get')
-                    .returns(Promise.resolve({ }));
+                    .returns(Promise.resolve(mockError));
                 done();
             });
 
@@ -85,12 +117,17 @@ describe('Google geocode helper', () => {
                 done(Error('Test not complete'));
             });
 
-            it.skip('rejects with an invalid lat,lng error', (done) => {
-                done(Error('Test not complete'));
-            });
-
-            it.skip('rejects with a no results message', (done) => {
-                done(Error('Test not complete'));
+            it('rejects with an invalid lat,lng error', (done) => {
+                getStateZipFromLatLng(null, null)
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(({ statusCode, message }) => {
+                        expect(statusCode).to.eq(400);
+                        expect(message).to.eq(INVALID_REQUEST(null, null));
+                        done();
+                    })
+                    .catch(done);
             });
         });
     });
