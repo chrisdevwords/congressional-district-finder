@@ -1,6 +1,6 @@
 
-import getStateShape from './getStateShape';
-import isLatLngInMultiPolygon from '../../geolib/isLatLngInMultiPolygon';
+import getStateShape from './github/unitedstates/getStateShape';
+import isLatLngInMultiPolygon from './geolib/isLatLngInMultiPolygon';
 
 
 function checkLatLngInState(lat, lng, stateId) {

@@ -5,12 +5,12 @@ import chai from 'chai';
 
 import flattenMultiPolygon, {
     isValidGeoCoordinates,
-} from '../src/github/unitedstates/flattenMultiPolygon';
+} from '../../../src/github/unitedstates/flattenMultiPolygon';
 
-import mockWY from './mock/github/unitedstates/states/WY.json';
-import mockAK from './mock/github/unitedstates/states/AK.json';
-import mockOH2 from './mock/github/unitedstates/districts/OH-2.json';
-import mockHI2 from './mock/github/unitedstates/districts/HI-2.json';
+import mockWY from '../../mock/github/unitedstates/states/WY.json';
+import mockAK from '../../mock/github/unitedstates/states/AK.json';
+import mockOH2 from '../../mock/github/unitedstates/districts/OH-2.json';
+import mockHI2 from '../../mock/github/unitedstates/districts/HI-2.json';
 
 const { describe, it } = mocha;
 const { expect, config } = chai;

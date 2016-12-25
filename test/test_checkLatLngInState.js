@@ -4,7 +4,7 @@ import request from 'request-promise';
 import sinon from 'sinon';
 
 import { INVALID_COORDINATES } from '../src/geolib/GeolibError';
-import checkLatLngInState from '../src/github/unitedstates/checkLatLngInState';
+import checkLatLngInState from '../src/checkLatLngInState';
 
 import mockNY from './mock/github/unitedstates/states/NY.json';
 

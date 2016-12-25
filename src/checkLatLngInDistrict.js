@@ -1,6 +1,6 @@
 
-import getDistrictShape from './getDistrictShape';
-import isLatLngInMultiPolygon from '../../geolib/isLatLngInMultiPolygon';
+import getDistrictShape from './github/unitedstates/getDistrictShape';
+import isLatLngInMultiPolygon from './geolib/isLatLngInMultiPolygon';
 
 
 function checkLatLngInDistrict(lat, lng, districtId) {

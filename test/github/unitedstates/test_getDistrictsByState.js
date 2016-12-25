@@ -5,8 +5,8 @@ import chaiAsPromised from 'chai-as-promised';
 import request from 'request-promise';
 import sinon from 'sinon';
 
-import mock from './mock/github/unitedstates/districts/2016.json';
-import getDistrictsByState, { NO_DISTRICTS_FOUND } from '../src/github/unitedstates/getDistrictsByState';
+import mock from '../../mock/github/unitedstates/districts/2016.json';
+import getDistrictsByState, { NO_DISTRICTS_FOUND } from '../../../src/github/unitedstates/getDistrictsByState';
 
 chai.use(chaiAsPromised);
 chai.config.includeStack = true;

@@ -6,12 +6,12 @@ import sinon from 'sinon';
 
 import getDistrictShape, {
     parseDistrictShape
-}  from '../src/github/unitedstates/getDistrictShape';
+}  from '../../../src/github/unitedstates/getDistrictShape';
 
-import mockWV3 from './mock/github/unitedstates/districts/WV-3.json';
-import mockHI2 from './mock/github/unitedstates/districts/HI-2.json';
-import mockNY12 from './mock/github/unitedstates/districts/NY-12.json';
-import mockOH2 from './mock/github/unitedstates/districts/OH-2.json';
+import mockWV3 from '../../mock/github/unitedstates/districts/WV-3.json';
+import mockHI2 from '../../mock/github/unitedstates/districts/HI-2.json';
+import mockNY12 from '../../mock/github/unitedstates/districts/NY-12.json';
+import mockOH2 from '../../mock/github/unitedstates/districts/OH-2.json';
 
 const { beforeEach, afterEach, describe, it } = mocha;
 const { expect, config } = chai;

@@ -5,8 +5,8 @@ import chaiAsPromised from 'chai-as-promised';
 import request from 'request-promise';
 import sinon from 'sinon';
 
-import mock from './mock/github/unitedstates/districts/2016.json';
-import getDistricts from '../src/github/unitedstates/getDistricts';
+import mock from '../../mock/github/unitedstates/districts/2016.json';
+import getDistricts from '../../../src/github/unitedstates/getDistricts';
 
 
 chai.use(chaiAsPromised);

@@ -6,9 +6,9 @@ import sinon from 'sinon';
 
 import getStateShape, {
     parseStateShape
-} from '../src/github/unitedstates/getStateShape';
+} from '../../../src/github/unitedstates/getStateShape';
 
-import mockWV from './mock/github/unitedstates/states/WV.json';
+import mockWV from '../../mock/github/unitedstates/states/WV.json';
 
 const { beforeEach, afterEach, describe, it } = mocha;
 const { expect, config } = chai;
