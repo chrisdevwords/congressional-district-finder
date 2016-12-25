@@ -17,6 +17,7 @@ import mockTeritory from '../../../mock/google/maps/geocode/SanJuan.json';
 import mock404 from '../../../mock/google/maps/geocode/noresults.json';
 import mockError from '../../../mock/google/maps/geocode/invalid.json';
 
+
 const { beforeEach, afterEach, describe, it } = mocha;
 const { expect, config } = chai;
 
@@ -168,15 +169,6 @@ describe('Google geocode helper', () => {
                 const result = parseLatLngJSON(mockTeritory);
                 expect(result.country).to.eq('PR');
                 done();
-            });
-        });
-
-        context('with an unsuccessful result', () => {
-            it.skip('can parse a no results message', (done) => {
-                done(Error('Test not complete'));
-            });
-            it.skip('throws an invalid lat,lng error', (done) => {
-                done(Error('Test not complete'));
             });
         });
     });
