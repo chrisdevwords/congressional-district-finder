@@ -21,11 +21,11 @@ export function parseLatLngJSON({ results }) {
         let state;
         let zip;
 
-        const country = components.find(component =>
-            component.types.includes('country')
+        const country = components.find(({ types }) =>
+            types && types.includes('country')
         );
 
-        if (country.short_name === 'US') {
+        if (country && country.short_name === 'US') {
             components.find((component) => {
                 if (component.types.includes('administrative_area_level_1')) {
                     state = component.short_name;
@@ -34,9 +34,9 @@ export function parseLatLngJSON({ results }) {
                 return false;
             });
 
-            components.find((component) => {
-                if (component.types.includes('postal_code')) {
-                    zip = component.short_name;
+            components.find(({types, short_name}) => {
+                if (types.includes('postal_code')) {
+                    zip = short_name;
                     return true;
                 }
                 return false;
