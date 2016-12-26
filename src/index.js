@@ -1,10 +1,22 @@
 
 import getDistricts from './github/unitedstates/getDistricts';
 import getDistrictsByState from './github/unitedstates/getDistrictsByState';
-import getDistrictShape from './github/unitedstates/getDistrictShape';
+import checkLatLngInState from './checkLatLngInState';
+import checkLatLngInDistrict from './checkLatLngInDistrict';
+import checkLatLngInDistricts from './checkLatLngInDistricts';
+import getStateZipFromLatLng
+    from './google/maps/geocode/getStateZipFromLatLng';
+import getDistrictsInZip from './house/gov/getDistrictsInZip';
+import getDistrictByLatLng from './getDistrictByLatLng';
 
-export default {
+
+export {
     getDistricts,
     getDistrictsByState,
-    getDistrictShape
+    checkLatLngInState,
+    checkLatLngInDistrict,
+    checkLatLngInDistricts,
+    getStateZipFromLatLng,
+    getDistrictsInZip,
+    getDistrictByLatLng
 };
