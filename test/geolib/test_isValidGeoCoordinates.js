@@ -48,4 +48,14 @@ describe('#isValidGeoCoordinates', () => {
             done();
         });
     });
+
+    context('with an array containing a null value', () => {
+
+        it('returns false', (done) => {
+            const badArray = [1, null];
+            expect(isValidGeoCoordinates(badArray))
+                .to.eq(false);
+            done();
+        });
+    });
 });
