@@ -26,16 +26,18 @@ export function parseLatLngJSON({ results }) {
         );
 
         if (country && country.short_name === 'US') {
-            components.find((component) => {
-                if (component.types.includes('administrative_area_level_1')) {
-                    state = component.short_name;
+            components.find(({ types, short_name }) => {
+                if (types.includes('administrative_area_level_1')) {
+                    // eslint-disable-next-line camelcase
+                    state = short_name;
                     return true;
                 }
                 return false;
             });
 
-            components.find(({types, short_name}) => {
+            components.find(({ types, short_name }) => {
                 if (types.includes('postal_code')) {
+                    // eslint-disable-next-line camelcase
                     zip = short_name;
                     return true;
                 }

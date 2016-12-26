@@ -2,7 +2,8 @@
 import checkLatLngInDistrict from './checkLatLngInDistrict';
 
 export const COORDINATES_NOT_IN_DISTRICTS = (lat, lng, districts) =>
-    `Coordinates: "${lat},${lng}" could not be found in provided districts: ${districts}`;
+    `Coordinates: "${lat},${lng}" could not be found in ` +
+    `provided districts: ${districts}.`;
 
 export const NO_DISTRICTS_PROVIDED = (lat, lng) =>
     `No districts provided for coordinates: "${lat},${lng}".`;
