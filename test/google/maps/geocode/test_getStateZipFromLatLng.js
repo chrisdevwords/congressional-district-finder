@@ -83,8 +83,10 @@ describe('Google geocode helper', () => {
             });
 
             it('rejects with a 404 and message', (done) => {
+
                 const lat = 78.2162792;
                 const lng = -171.869262;
+
                 getStateZipFromLatLng(lat, lng)
                     .then(() => {
                         done(Error('Promise should be rejected.'));
@@ -100,8 +102,10 @@ describe('Google geocode helper', () => {
 
         context('with an invalid lat,lng', () => {
 
+            let stub;
+
             beforeEach((done) => {
-                sinon
+                stub = sinon
                     .stub(request, 'get')
                     .returns(Promise.resolve(mockError));
                 done();
@@ -112,20 +116,37 @@ describe('Google geocode helper', () => {
                 done();
             });
 
-            it.skip('rejects with an invalid lat,lng error without making a request', (done) => {
-                // verify lat,lng before making http request
-                // spy on request and verify it's not called
-                done(Error('Test not complete'));
-            });
-
-            it('rejects with an invalid lat,lng error', (done) => {
-                getStateZipFromLatLng(null, null)
+            it('rejects with an invalid lat,lng error without making a request', (done) => {
+                getStateZipFromLatLng('foo', 'bar')
                     .then(() => {
                         done(Error('Promise should be rejected.'));
                     })
-                    .catch(({ statusCode, message }) => {
+                    .catch(() => {
+                        expect(stub.callCount).to.eq(0);
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('rejects with an invalid lat,lng error with the correct status code', (done) => {
+                getStateZipFromLatLng('foo', 'bar')
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(({ statusCode }) => {
                         expect(statusCode).to.eq(400);
-                        expect(message).to.eq(INVALID_REQUEST(null, null));
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('rejects with an invalid lat,lng error with an informative message', (done) => {
+                getStateZipFromLatLng('foo', 'bar')
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(({ message }) => {
+                        expect(message).to.eq(INVALID_REQUEST('foo', 'bar'));
                         done();
                     })
                     .catch(done);

@@ -1,6 +1,6 @@
 
 import request from 'request-promise';
-
+import isValidGeoCoordinates from '../../../geolib/isValidGeoCoordinates';
 
 export const endpoint = (lat, lng) =>
     `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}`;
@@ -54,6 +54,15 @@ export function parseLatLngJSON({ results }) {
 }
 
 export default function getStateZipFromLatLng(lat, lng) {
+
+    if (!isValidGeoCoordinates([lng, lat])) {
+        return Promise.reject({
+            statusCode: 400,
+            // eslint-disable-next-line babel/new-cap
+            message: INVALID_REQUEST(lat, lng)
+        });
+    }
+
     return request
         .get({
             json: true,
