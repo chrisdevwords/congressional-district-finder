@@ -32,15 +32,17 @@ describe('#getDistrictByLatLng', () => {
                 }).catch(done);
         });
 
-        it('can find a district in Rancho Cucamonga, CA', (done) => {
+        it('can find a district in Alaska', (done) => {
 
-            const lat = 34.119695;
-            const lng = -117.5924517;
+            const lat = 64.5011;
+            const lng = -165.4064;
 
             getDistrictByLatLng(lat, lng)
-                .then(({ district }) => {
+                .then(({ district, districtId }) => {
+                    expect(districtId)
+                        .to.eq('AK-0');
                     expect(district.districtCode)
-                        .to.eq('CA-31');
+                        .to.eq('AK-AL');
                     done();
                 }).catch(done);
         });

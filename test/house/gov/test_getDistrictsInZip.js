@@ -75,6 +75,15 @@ describe('house.gov pagescraper', () =>{
                         done();
                     }).catch(done);
             });
+
+            it('can parse the code for an at-large district', (done) => {
+                getDistrictsInZip(99762)
+                    .then((districts) => {
+                        expect(districts.length).to.eq(1);
+                        expect(districts[0]).to.eq('AK-0');
+                        done();
+                    }).catch(done);
+            });
         });
 
         context('with an invalid zip code', () => {
