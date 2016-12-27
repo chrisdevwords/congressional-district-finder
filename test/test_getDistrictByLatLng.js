@@ -2,7 +2,7 @@
 
 import mocha from 'mocha';
 import chai from 'chai';
-import request from 'request-promise';
+import request from 'request-promise-native';
 import sinon from 'sinon';
 
 import { INVALID_REQUEST } from '../src/google/maps/geocode/getStateZipFromLatLng';

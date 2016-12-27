@@ -1,5 +1,5 @@
 
-import request from 'request-promise';
+import request from 'request-promise-native';
 import flattenMultiPolygon from './flattenMultiPolygon';
 
 export const endpoint = st =>

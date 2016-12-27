@@ -20,7 +20,7 @@ $ npm install congressional-district-finder --save
 
 ## Usage 
 
-All methods return promises, using [Request-Promise](https://www.npmjs.com/package/request-promise) for various http GET requests.
+All methods return promises, using [Request-Promise-Native](https://www.npmjs.com/package/request-promise-native) for various http GET requests.
 
 #### Get a district by latitude and longitude:
 ```js

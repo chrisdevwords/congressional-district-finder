@@ -1,5 +1,5 @@
 
-import request from 'request-promise';
+import request from 'request-promise-native';
 import isValidGeoCoordinates from '../../../geolib/isValidGeoCoordinates';
 
 export const endpoint = (lat, lng) =>

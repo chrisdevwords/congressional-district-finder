@@ -3,7 +3,7 @@ import { readFile } from 'fs';
 import PATH from 'path';
 import mocha from 'mocha';
 import chai from 'chai';
-import request from 'request-promise';
+import request from 'request-promise-native';
 import sinon from 'sinon';
 
 

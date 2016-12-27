@@ -1,5 +1,5 @@
 
-import request from 'request-promise';
+import request from 'request-promise-native';
 
 
 export const INVALID_ZIP = zip =>
