@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha ./test",
     "lint": "eslint src/",
-    "compile": "babel --presets es2015 -d dist/ src/",
+    "compile": "rm -rf dist && babel --presets es2015 -d dist/ src/",
     "prepublish": "npm run compile"
   },
   "engines": {
