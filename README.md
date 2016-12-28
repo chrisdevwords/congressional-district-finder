@@ -3,6 +3,8 @@ A small library of functions for determining US Congressional representation bas
 
 [![CircleCI](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master.svg?style=shield)](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/chrisdevwords/congressional-district-finder/badge.svg?branch=master)](https://coveralls.io/github/chrisdevwords/congressional-district-finder?branch=master)
+[![Dependency Status](https://david-dm.org/chrisdevwords/congressional-district-finder.svg)](https://david-dm.org/chrisdevwords/congressional-district-finder)
+[![Dev Dependency Status](https://david-dm.org/chrisdevwords/congressional-district-finder/dev-status.svg)](https://david-dm.org/chrisdevwords/congressional-district-finder?type=dev)
 
 Fetches and parses data from:
 - https://github.com/unitedstates/districts/
