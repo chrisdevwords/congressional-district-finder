@@ -5,6 +5,7 @@ A small library of functions for determining US Congressional representation bas
 [![Coverage Status](https://coveralls.io/repos/github/chrisdevwords/congressional-district-finder/badge.svg?branch=master)](https://coveralls.io/github/chrisdevwords/congressional-district-finder?branch=master)
 [![Dependency Status](https://david-dm.org/chrisdevwords/congressional-district-finder.svg)](https://david-dm.org/chrisdevwords/congressional-district-finder)
 [![Dev Dependency Status](https://david-dm.org/chrisdevwords/congressional-district-finder/dev-status.svg)](https://david-dm.org/chrisdevwords/congressional-district-finder?type=dev)
+[![Known Vulnerabilities](https://snyk.io/test/github/chrisdevwords/congressional-district-finder/badge.svg)](https://snyk.io/test/github/chrisdevwords/congressional-district-finder)
 
 Fetches and parses data from:
 - https://github.com/unitedstates/districts/
