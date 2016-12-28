@@ -2,6 +2,7 @@
 A small library of functions for determining US Congressional representation based on location.
 
 [![CircleCI](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master.svg?style=shield)](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/chrisdevwords/congressional-district-finder/badge.svg?branch=master)](https://coveralls.io/github/chrisdevwords/congressional-district-finder?branch=master)
 
 Fetches and parses data from:
 - https://github.com/unitedstates/districts/
