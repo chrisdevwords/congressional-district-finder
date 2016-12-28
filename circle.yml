@@ -1,0 +1,5 @@
+test:
+  post:
+    - mkdir -p $CIRCLE_ARTIFACTS/nyc/json_output
+    - mv .nyc_output/*.json $CIRCLE_ARTIFACTS/nyc/json_output
+    - mv .coverage $CIRCLE_ARTIFACTS/nyc/coverage
