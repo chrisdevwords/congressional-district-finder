@@ -4,3 +4,10 @@ test:
     - mv .nyc_output/*.json $CIRCLE_ARTIFACTS/nyc/json_output
     - mv .coverage $CIRCLE_ARTIFACTS/nyc/coverage
     - cat $CIRCLE_ARTIFACTS/nyc/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+deployment:
+  release:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    owner: chrisdevwords
+    commands:
+      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - npm publish
