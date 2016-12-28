@@ -8,7 +8,7 @@
     "url": "https://github.com/chrisdevwords/congressional-district-finder"
   },
   "scripts": {
-    "test": "mocha ./test",
+    "test": "nyc mocha ./test",
     "lint": "eslint src/",
     "compile": "rm -rf dist && babel --presets es2015 -d dist/ src/",
     "prepublish": "npm run compile"
@@ -45,6 +45,7 @@
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "mocha": "^3.2.0",
+    "nyc": "^10.0.0",
     "sinon": "^1.17.6"
   }
 }

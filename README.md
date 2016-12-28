@@ -1,7 +1,7 @@
 # Congressional District Finder 
 A small library of functions for determining US Congressional representation based on location.
 
-[![CircleCI](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master.svg?style=svg)](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master)
+[![CircleCI](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master.svg?style=shield)](https://circleci.com/gh/chrisdevwords/congressional-district-finder/tree/master)
 
 Fetches and parses data from:
 - https://github.com/unitedstates/districts/
