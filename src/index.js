@@ -14,15 +14,27 @@ export {
     /**
      * Fetches a list of all congressional districts
      * from JSON hosted by github.com/unitedstates.
+     * Subject to rate limits without custom headers.
      * @see https://github.com/unitedstates/districts
-     * @returns {Promise} - Resolves with an array of district IDs.
-     *                      Ex: ["AL-1","AL-2",...,"WY-0"]
+     * @see https://developer.github.com/v3/rate_limit/
+     * @param {object} customHeaders - If you wish to increase rate limits,
+     *                                 pass your github auth credentials,
+     *                                 an eTag or Last-Modified header.
+     * @returns {Promise} - Resolves with the following:
+     *                          districts {object} - an Array of districts.
+     *                           Ex: ["AL-1","AL-2",...,"WY-0"]
+     *                          headers {object} - The response headers from
+     *                           github, including etag and last-modified.
+     *                      Rejects with a 304 (at no rate limit penalty) if
+     *                           etag or last-modified header is not expired.
      */
     getDistricts,
     /**
      * Fetches a list of all congressional district codes
      * based on state abbreviation (ST) from github.com/unitedstates.
+     * Subject to rates limits.
      * @see https://github.com/unitedstates/districts
+     * @see https://developer.github.com/v3/rate_limit/
      * @param  {string} st - Postal code abbreviation for US state. Ex: AL.
      * @returns {Promise} - Resolves with an array of district IDs.
      *                      Ex: ["AL-1","AL-2",...,"AL-7"]

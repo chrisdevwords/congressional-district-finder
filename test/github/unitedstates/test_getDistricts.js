@@ -40,7 +40,7 @@ describe('#getDistricts', () => {
 
         it('returns a list of all congressional districts', (done) => {
             getDistricts()
-                .then((districts) => {
+                .then(({ districts }) => {
                     expect(districts).be.an('array')
                         .and.have.length.of(435)
                         .and.include('CA-22');
@@ -64,12 +64,11 @@ describe('#getDistricts', () => {
 
     context('when passed a custom user-agent', () => {
 
-        let calledOptions
+        let calledOptions;
 
         beforeEach(done => {
             sinon
                 .stub(request, 'get', (options) => {
-                    console.log('request.get')
                     calledOptions = options;
                     return Promise.resolve({ body: mock });
                 });
@@ -87,6 +86,44 @@ describe('#getDistricts', () => {
                 .then(() => {
                     expect(calledOptions.headers['User-Agent'])
                         .to.eq('my-other-app');
+                    done();
+                })
+                .catch(done);
+        });
+    });
+
+    context('when passed an eTag', () => {
+
+        it('handles a 304', (done) => {
+            const eTag = '"36bac568759f240e06955cf597493555"';
+            getDistricts({ 'If-None-Match': eTag })
+                .then(() => {
+                    done(Error('Promise should be rejected'));
+                })
+                .catch(({ statusCode, response }) => {
+                    const { headers } = response;
+                    expect(headers.etag).to.eq(eTag);
+                    expect(statusCode).to.eq(304);
+                    done();
+                })
+                .catch(done);
+        });
+
+    });
+
+    context('when passed an invalid/expired eTag', () => {
+
+        it('resolves a 200 w/ a new eTag', (done) => {
+            const eTag = '"foo"';
+            getDistricts({ 'If-None-Match': eTag })
+                .then(({ districts, headers }) => {
+                    expect(headers.etag)
+                        .to.not.eq(eTag)
+                        .and.to.not.eq(undefined);
+                    expect(districts)
+                        .to.be.an('array')
+                        .and.have.length.of(435)
+                        .and.include('NE-2');
                     done();
                 })
                 .catch(done);

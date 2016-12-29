@@ -7,7 +7,7 @@ export const NO_DISTRICTS_FOUND = 'No districts found.';
 export default function getDistrictsByState(st) {
     const ST = st.toUpperCase();
     return getDistricts()
-        .then(districts =>
+        .then(({ districts }) =>
             districts.filter(
                 district =>
                     district.indexOf(ST) === 0
