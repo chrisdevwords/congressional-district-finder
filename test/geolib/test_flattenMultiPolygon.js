@@ -4,6 +4,7 @@ import mocha from 'mocha';
 import chai from 'chai';
 
 import flattenMultiPolygon from '../../src/geolib/flattenMultiPolygon';
+import { INVALID_COORDINATES } from '../../src/geolib/GeolibError';
 
 import mockWY from '../mock/github/unitedstates/states/WY.json';
 import mockAK from '../mock/github/unitedstates/states/AK.json';
@@ -94,5 +95,14 @@ describe('#flattenMultiPolygon', () => {
             expect(polygons[49][33].length).to.eq(2);
             done();
         });
+    });
+
+    context('with a null value', () => {
+       it('throws a helpful error', (done) => {
+           expect(() => {
+                flattenMultiPolygon(null);
+           }).to.throw(INVALID_COORDINATES)
+           done();
+       });
     });
 });
