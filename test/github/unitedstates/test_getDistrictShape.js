@@ -5,7 +5,8 @@ import request from 'request-promise-native';
 import sinon from 'sinon';
 
 import getDistrictShape, {
-    parseDistrictShape
+    parseDistrictShape,
+    UNEXPECTED_DISTRICT_JSON
 }  from '../../../src/github/unitedstates/getDistrictShape';
 
 import mockWV3 from '../../mock/github/unitedstates/districts/WV-3.json';
@@ -92,28 +93,40 @@ describe('#getDistrictShape', () => {
 
 describe('#parseDistrictShape', () => {
 
-    it('parses the name from shape json', (done) => {
-        const result = parseDistrictShape(mockNY12);
-        expect(result.name)
-            .to.equal('New York 12th');
-        done();
+    context('with JSON in the expected format', () => {
+        it('parses the name from shape json', (done) => {
+            const result = parseDistrictShape(mockNY12);
+            expect(result.name)
+                .to.equal('New York 12th');
+            done();
+        });
+
+        it('parses the districtCode from shape json', (done) => {
+            const result = parseDistrictShape(mockWV3);
+            expect(result.districtCode)
+                .to.equal('WV-03');
+            done();
+        });
+
+        it('parses the polygons from shape json', (done) => {
+            const { polygons } = parseDistrictShape(mockHI2);
+            expect(polygons)
+                .to.be.an('array');
+            expect(polygons.length).to.eq(9);
+            expect(polygons[0][0].length).to.eq(2);
+            expect(polygons[0][1][0]).to.eq(-156.052315);
+            expect(polygons[0][1][1]).to.eq(19.756836);
+            done();
+        });
     });
 
-    it('parses the districtCode from shape json', (done) => {
-        const result = parseDistrictShape(mockWV3);
-        expect(result.districtCode)
-            .to.equal('WV-03');
-        done();
-    });
-
-    it('parses the polygons from shape json', (done) => {
-        const { polygons } = parseDistrictShape(mockHI2);
-        expect(polygons)
-            .to.be.an('array');
-        expect(polygons.length).to.eq(9);
-        expect(polygons[0][0].length).to.eq(2);
-        expect(polygons[0][1][0]).to.eq(-156.052315);
-        expect(polygons[0][1][1]).to.eq(19.756836);
-        done();
+    context('with JSON in an unexpected format', () => {
+        it('throws a helpful error', (done) =>{
+            const { geometry } = mockHI2;
+            expect(() => {
+                parseDistrictShape(geometry);
+            }).to.throw(UNEXPECTED_DISTRICT_JSON);
+            done();
+        });
     });
 });

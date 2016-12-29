@@ -5,16 +5,24 @@ import flattenMultiPolygon from './flattenMultiPolygon';
 export const endpoint = district =>
     `https://theunitedstates.io/districts/cds/2016/${district}/shape.geojson`;
 
-export function parseDistrictShape(data) {
-    const {
-        geometry = {},
-        properties = { Code: '', District: '' }
-    } = data;
+export const UNEXPECTED_DISTRICT_JSON = 'Unexpected JSON.';
+
+export function parseDistrictShape({ geometry, properties }) {
+
+    if (!geometry || !properties) {
+        throw new Error(UNEXPECTED_DISTRICT_JSON);
+    }
+
     const { coordinates } = geometry;
     const polygons = flattenMultiPolygon(coordinates);
     const districtCode = properties.Code;
     const name = properties.District;
-    return { districtCode, name, polygons }
+
+    return {
+        districtCode,
+        name,
+        polygons
+    }
 }
 
 export default function getDistrictShape(district) {

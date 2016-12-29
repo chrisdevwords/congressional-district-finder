@@ -9,6 +9,7 @@ function checkLatLngInDistrict(lat, lng, districtId) {
 
             const { polygons } = district;
             const isMatched = isLatLngInMultiPolygon(lat, lng, polygons);
+
             return {
                 isMatched,
                 districtId,
