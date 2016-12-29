@@ -2,7 +2,7 @@
 import mocha from 'mocha';
 import chai from 'chai';
 
-import flattenMultiPolygon from '../../src/github/unitedstates/flattenMultiPolygon';
+import flattenMultiPolygon from '../../src/geolib/flattenMultiPolygon';
 import isLatLngInPolygon from '../../src/geolib/isLatLngInPolygon';
 import { INVALID_COORDINATES } from '../../src/geolib/GeolibError';
 

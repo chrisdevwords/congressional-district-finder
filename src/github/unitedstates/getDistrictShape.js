@@ -1,6 +1,6 @@
 
 import request from 'request-promise-native';
-import flattenMultiPolygon from './flattenMultiPolygon';
+
 
 export const endpoint = district =>
     `https://theunitedstates.io/districts/cds/2016/${district}/shape.geojson`;
@@ -14,14 +14,13 @@ export function parseDistrictShape({ geometry, properties }) {
     }
 
     const { coordinates } = geometry;
-    const polygons = flattenMultiPolygon(coordinates);
     const districtCode = properties.Code;
     const name = properties.District;
 
     return {
         districtCode,
         name,
-        polygons
+        polygons: coordinates
     }
 }
 
