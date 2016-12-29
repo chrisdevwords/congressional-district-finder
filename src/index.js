@@ -90,6 +90,7 @@ export {
      * @param {number} latitude
      * @param {number} longitude
      * @param  {string} st - Postal code abbreviation for US state. Ex: AL
+     * @returns {Promise}
      *      Resolves w/ the following:
      *          isMatched {boolean} - Do the lat,lng reside in the state?
      *          districtId {string} - Hyphen-delimited code for district.
