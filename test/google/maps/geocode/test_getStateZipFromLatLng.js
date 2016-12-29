@@ -106,8 +106,7 @@ describe('Google geocode helper', () => {
 
             beforeEach((done) => {
                 stub = sinon
-                    .stub(request, 'get')
-                    .returns(Promise.resolve(mockError));
+                    .spy(request, 'get');
                 done();
             });
 
@@ -147,6 +146,63 @@ describe('Google geocode helper', () => {
                     })
                     .catch(({ message }) => {
                         expect(message).to.eq(INVALID_REQUEST('foo', 'bar'));
+                        done();
+                    })
+                    .catch(done);
+            });
+        });
+
+        context('with an error response other than 404', () => {
+
+            let stub;
+
+            const lat = 1;
+            const lng = 1;
+
+            beforeEach((done) => {
+                stub = sinon
+                    .stub(request, 'get')
+                    .returns(Promise.resolve(mockError));
+                done();
+            });
+
+            afterEach((done) => {
+                request.get.restore();
+                done();
+            });
+
+            it('handles the error', (done) =>{
+                getStateZipFromLatLng(lat, lng)
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(({ statusCode }) => {
+                        expect(statusCode).to.eq(400);
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('rejects with an error message', (done) =>{
+                getStateZipFromLatLng(lat, lng)
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(({ message }) => {
+                        expect(message).to.eq(INVALID_REQUEST(lat, lng));
+                        done();
+                    })
+                    .catch(done);
+            });
+
+            it('only makes one request', (done) => {
+
+                getStateZipFromLatLng(lat, lng)
+                    .then(() => {
+                        done(Error('Promise should be rejected.'));
+                    })
+                    .catch(() => {
+                        expect(stub.callCount).to.eq(1);
                         done();
                     })
                     .catch(done);

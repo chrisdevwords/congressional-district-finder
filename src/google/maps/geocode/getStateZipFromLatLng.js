@@ -16,43 +16,45 @@ export function parseLatLngJSON({ results }) {
     const [first] = results;
     const components = first && first.address_components;
 
-    if (components) {
+    let state;
+    let zip;
+    let country;
 
-        let state;
-        let zip;
-
-        const country = components.find(({ types }) =>
-            types && types.includes('country')
-        );
-
-        if (country && country.short_name === 'US') {
-            components.find(({ types, short_name }) => {
-                if (types.includes('administrative_area_level_1')) {
-                    // eslint-disable-next-line camelcase
-                    state = short_name;
-                    return true;
-                }
-                return false;
-            });
-
-            components.find(({ types, short_name }) => {
-                if (types.includes('postal_code')) {
-                    // eslint-disable-next-line camelcase
-                    zip = short_name;
-                    return true;
-                }
-                return false;
-            });
+    components.find(({ short_name, types }) => {
+        if (types && types.includes('country')) {
+            // eslint-disable-next-line camelcase
+            country = short_name;
+            return true;
         }
+        return false;
+    });
 
-        return {
-            zip,
-            state,
-            country: country && country.short_name
-        }
+
+    if (country && country === 'US') {
+        components.find(({ types, short_name }) => {
+            if (types.includes('administrative_area_level_1')) {
+                // eslint-disable-next-line camelcase
+                state = short_name;
+                return true;
+            }
+            return false;
+        });
+
+        components.find(({ types, short_name }) => {
+            if (types.includes('postal_code')) {
+                // eslint-disable-next-line camelcase
+                zip = short_name;
+                return true;
+            }
+            return false;
+        });
     }
 
-    return { };
+    return {
+        zip,
+        state,
+        country
+    }
 }
 
 export default function getStateZipFromLatLng(lat, lng) {
@@ -72,23 +74,25 @@ export default function getStateZipFromLatLng(lat, lng) {
         })
         .then((data) => {
             const { status } = data;
+
             switch (status) {
+
+                case 'OK':
+                    return data;
+
                 case 'ZERO_RESULTS':
                     return Promise.reject({
                         statusCode: 404,
                         // eslint-disable-next-line babel/new-cap
                         message: NO_RESULTS_FOUND(lat, lng)
                     });
-                case 'INVALID_REQUEST':
+
+                default :
                     return Promise.reject({
                         statusCode: 400,
                         // eslint-disable-next-line babel/new-cap
                         message: INVALID_REQUEST(lat, lng)
                     });
-                case 'OK':
-                default :
-                    return data;
-
             }
         })
         .then(parseLatLngJSON);
