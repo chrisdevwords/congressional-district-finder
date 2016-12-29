@@ -112,7 +112,7 @@ describe('#checkLatLngInDistricts', () => {
         });
     });
 
-    context('with an empty array', ()=> {
+    context('with an empty array', () => {
 
         it('throws an informative error', (done) => {
             checkLatLngInDistricts(lat, lng, [])
@@ -141,5 +141,35 @@ describe('#checkLatLngInDistricts', () => {
                 })
                 .catch(done);
         });
-    })
+    });
+
+    context('with a value of null for districts', () => {
+        it('throws an informative error', (done) => {
+            checkLatLngInDistricts(lat, lng, null)
+                .then(() => {
+                    done(Error('Promise should be rejected.'))
+                })
+                .catch(({ statusCode, message }) => {
+                    expect(statusCode)
+                        .to.eq(422);
+                    expect(message)
+                        .to.eq(NO_DISTRICTS_PROVIDED(lat, lng));
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('throws an error without making an http request', (done) => {
+            checkLatLngInDistricts(lat, lng, null)
+                .then(() => {
+                    done(Error('Promise should be rejected.'))
+                })
+                .catch(() => {
+                    expect(stub.callCount)
+                        .to.eq(0);
+                    done();
+                })
+                .catch(done);
+        });
+    });
 });

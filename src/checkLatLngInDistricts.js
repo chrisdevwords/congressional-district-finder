@@ -8,9 +8,9 @@ export const COORDINATES_NOT_IN_DISTRICTS = (lat, lng, districts) =>
 export const NO_DISTRICTS_PROVIDED = (lat, lng) =>
     `No districts provided for coordinates: "${lat},${lng}".`;
 
-function checkLatLngInDistricts(lat, lng, districts = []) {
+function checkLatLngInDistricts(lat, lng, districts) {
 
-    if (!districts.length) {
+    if (!districts || !districts.length) {
         return Promise.reject({
             statusCode: 422,
             // eslint-disable-next-line babel/new-cap
