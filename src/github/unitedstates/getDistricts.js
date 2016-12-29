@@ -9,15 +9,23 @@ export function parseDistricts({ body }) {
     return [...body].map(directory => directory.name);
 }
 
-export default function getDistricts() {
+export const DEFAULT_HEADERS = {
+    'User-Agent': 'congressional-district-finder'
+};
+
+export default function getDistricts(customHeaders) {
+
+    const headers = Object.assign(
+        {},
+        DEFAULT_HEADERS,
+        customHeaders
+    );
 
     const options = {
         uri: ENDPOINT,
         resolveWithFullResponse: true,
         json: true,
-        headers: {
-            'User-Agent': 'who-are-my-congressmen'
-        }
+        headers
     };
 
     return request
