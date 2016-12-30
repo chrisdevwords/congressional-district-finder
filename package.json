@@ -17,7 +17,7 @@
     "prepublish": "npm run compile"
   },
   "engines": {
-    "node": ">=4.3.2"
+    "node": ">=4"
   },
   "engine-strict": true,
   "keywords": [
