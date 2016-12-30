@@ -33,7 +33,7 @@
   "license": "ISC",
   "dependencies": {
     "geolib": "^2.0.22",
-    "house-gov-page-scraper": "0.0.1",
+    "house-gov-page-scraper": "^0.1.1",
     "request": "^2.79.0",
     "request-promise-native": "^1.0.3"
   },
