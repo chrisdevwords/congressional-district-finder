@@ -32,7 +32,7 @@ describe('#isLatLngInMultiPolygon', () => {
         });
 
         it('correctly returns false', (done) => {
-            const honolulu = { latitude: 21.3896946, longitude: -158.1690712};
+            const honolulu = { latitude: 21.3069, longitude: -157.8583 };
             const result = isLatLngInMultiPolygon(
                 honolulu.latitude,
                 honolulu.longitude,
