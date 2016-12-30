@@ -12,7 +12,7 @@ Fetches and parses data from:
 - http://www.house.gov/
 - http://maps.googleapis.com/maps/api/geocode/json
 
-None of these endpoints require API tokens but [getDistricts](####get-a-list-of-all-us-congressional-districts) fetches from the github API, which [rate-limits unauthenticated requests](https://developer.github.com/v3/rate_limit/) to 50 per hour from a given IP.
+None of these endpoints require API tokens but [getDistricts](#get-a-list-of-all-us-congressional-districts) fetches from the github API, which [rate-limits unauthenticated requests](https://developer.github.com/v3/rate_limit/) to 60 per hour from a given IP.
 
 ## Requirements
 Requires NodeJS version 4.3.2 or greater. 
@@ -60,7 +60,7 @@ finder.getDistricts()
         console.log(result.districts[434]);// outputs WY-0
     });
 ```
-Without Github api auth credentials, you are limited to 60 requests per minute from a given IP.
+Without Github api auth credentials, you are limited to 60 requests per hour from a given IP.
 If your application will exceed this amount, you can pass auth credentials in the customHeader, parameter or
 cache the result and verify that's up to date by passing an etag or last modified time stamp.
 
