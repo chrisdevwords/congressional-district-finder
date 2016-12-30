@@ -1,8 +1,9 @@
 
+import { getDistrictsInZip } from 'house-gov-page-scraper';
 import getStateZipFromLatLng from
     './google/maps/geocode/getStateZipFromLatLng';
-import getDistrictsInZip from './house/gov/getDistrictsInZip'
 import checkLatLngInDistricts from './checkLatLngInDistricts';
+
 
 export const OUTSIDE_US = (lat, lng, country) =>
     `The specified latitude: ${lat} and ` +

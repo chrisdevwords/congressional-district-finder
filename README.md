@@ -14,10 +14,11 @@ Fetches and parses data from:
 
 And uses [geolib](https://www.npmjs.com/package/geolib) to determine if a given latitude or longitude resides in a State or Congressional District's [geoJSON](http://geojson.org/) boundaries.
 
-None of these endpoints require API tokens but [getDistricts](#get-a-list-of-all-us-congressional-districts) fetches from the github API, which [rate-limits unauthenticated requests](https://developer.github.com/v3/rate_limit/) to 60 per hour from a given IP.
 
 ## Requirements
 Requires NodeJS version 4.3.2 or greater. 
+
+None of these endpoints require API tokens but [getDistricts](#get-a-list-of-all-us-congressional-districts) fetches from the github API, which [rate-limits unauthenticated requests](https://developer.github.com/v3/rate_limit/) to 60 per hour from a given IP.
 
 ## Installation
 ```

@@ -6,7 +6,6 @@ import checkLatLngInDistrict from './checkLatLngInDistrict';
 import checkLatLngInDistricts from './checkLatLngInDistricts';
 import getStateZipFromLatLng
     from './google/maps/geocode/getStateZipFromLatLng';
-import getDistrictsInZip from './house/gov/getDistrictsInZip';
 import getDistrictByLatLng from './getDistrictByLatLng';
 
 
@@ -80,33 +79,6 @@ export {
      *      Rejects with a 404 if no district codes are found.
      *      Resolves with an array of hyphen delimited district codes.
      *      ex: ['AL-1','AL-2']
-     */
-    getDistrictsInZip,
-    /**
-     * Fetches GeoJSON boundaries for a US Congressional District and
-     * verifies that a latitude and longitude are within those boundaries.
-     * GeoJSON data for district boundaries hosted by github.com/unitedstates.
-     * @see https://github.com/unitedstates/districts
-     * @param {number} latitude
-     * @param {number} longitude
-     * @param  {string} st - Postal code abbreviation for US state. Ex: AL
-     * @returns {Promise}
-     *      Resolves w/ the following:
-     *          isMatched {boolean} - Do the lat,lng reside in the state?
-     *          districtId {string} - Hyphen-delimited code for district.
-     *                                Ex: AL-1.
-     *          district {object} - Information about the district
-     *                              from github/unitedstates
-     *          district.name {string} - The display name of the district.
-     *                                   EX: "Alabama's 1st"
-     *          district.districtCode {string} - 5 character, hyphen delmited
-     *                                           code for the district.
-     *                                           Ex: "AL-01"
-     *          district.polygons - {array} An array of "shapes"
-     *                                      of lat, lng coordinates that
-     *                                      define the district's boundaries.
-     *          latitude {number} - Latitude provided.
-     *          longitude {number} - Longitude provided.
      */
     checkLatLngInDistrict,
     /**
