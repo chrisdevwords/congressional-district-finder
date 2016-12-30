@@ -12,6 +12,8 @@ Fetches and parses data from:
 - http://www.house.gov/
 - http://maps.googleapis.com/maps/api/geocode/json
 
+And uses [geolib](https://www.npmjs.com/package/geolib) to determine if a given latitude or longitude resides in a State or Congressional District's [geoJSON](http://geojson.org/) boundaries.
+
 None of these endpoints require API tokens but [getDistricts](#get-a-list-of-all-us-congressional-districts) fetches from the github API, which [rate-limits unauthenticated requests](https://developer.github.com/v3/rate_limit/) to 60 per hour from a given IP.
 
 ## Requirements
@@ -26,7 +28,8 @@ $ npm install congressional-district-finder --save
 
 All methods return promises, using [Request-Promise-Native](https://www.npmjs.com/package/request-promise-native) for various http GET requests.
 
-#### Get a district by latitude and longitude:
+### Get a District by Latitude and Longitude
+
 ```js
 var finder = require('congressional-district-finder');
 
@@ -51,7 +54,9 @@ finder.getDistrictByLatLng(31.6538179, -106.5890206)
     });
 ```
 
-#### Get a list of all US congressional districts
+### Other Methods
+
+#### Get a List of All US Congressional Districts
 ```js
 finder.getDistricts()
     .then(function(result) {
@@ -60,9 +65,11 @@ finder.getDistricts()
         console.log(result.districts[434]);// outputs WY-0
     });
 ```
-Without Github api auth credentials, you are limited to 60 requests per hour from a given IP.
-If your application will exceed this amount, you can pass auth credentials in the customHeader, parameter or
-cache the result and verify that's up to date by passing an etag or last modified time stamp.
+Note that this particular method uses the [Github Contents API](https://developer.github.com/v3/repos/contents/)
+Without Github API auth credentials, you are limited to 60 requests per hour from a given IP.
+If your application will likely exceed this, you can do the following:
+- [Increase your rate limit by passing auth credentials via the customHeaders](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
+- Cache the result and verify that it's up to date by passing an etag or last modified time stamp.
 
 ```js
 var districts, myCachedEtag = '"36bac568759f240e06955cf597493555"';
@@ -81,7 +88,52 @@ finder.getDistricts({'If-None-Match': myCachedEtag})
 ```
 [Read more about Github's rate limit rules](https://developer.github.com/v3/#rate-limiting).
 
+#### Check Coordinates Against a State
+- fetches [GEOJson](http://geojson.org/) from [github/unitedstates](https://github.com/unitedstates/districts/)
+- parses and checks the coordinates using [geolib](https://www.npmjs.com/package/geolib)
 
+```js
+var lat = 40.718031;
+var lng = -73.9583047;
+
+finder.checkLatLngInState(lat, lng, 'NY')
+    .then(function(result) {
+        console.log('Check coordinates in New York...');
+        console.log(result); // outputs { isMatched: true, stateId: 'NY', latitude: 40.718031, longitude: -73.9583047 }
+    });
+
+finder.checkLatLngInState(lat, lng, 'CT')
+    .then(function(result) {
+        console.log('Check coordinates in Connecticut...');
+        console.log(result); // outputs {isMatched: false, stateId: 'CT',latitude: 40.718031, ongitude: -73.9583047 }
+    });
+
+```
+#### Check Coordinates Against a District
+- fetches [GEOJson](http://geojson.org/) from [github/unitedstates](https://github.com/unitedstates/districts/)
+- parses and checks the coordinates using [geolib](https://www.npmjs.com/package/geolib)
+
+```js
+var honolulu = {latitude: 21.3069, longitude: -157.8583};
+
+finder.checkLatLngInDistrict(honolulu.latitude, honolulu.longitude, 'HI-1')
+    .then(function(result) {
+        console.log(result.districtId); // outputs HI-1
+        console.log(result.district.districtCode); // outputs HI-01
+        console.log(result.district.name); // outputs Hawaii 1st
+        console.log(result.isMatched); // outputs true
+        console.log('-');
+    });
+
+finder.checkLatLngInDistrict(honolulu.latitude, honolulu.longitude, 'HI-2')
+    .then(function(result) {
+        console.log(result.districtId); // outputs HI-2
+        console.log(result.district.districtCode); // outputs HI-02
+        console.log(result.district.name); // outputs Hawaii 2nd
+        console.log(result.isMatched); // outputs false
+        console.log('-');
+    });
+```
 
 ## Tests
 ```
@@ -89,7 +141,7 @@ $ npm test
 ```
 
 ## Contributing 
-Code is transpiled from ES6/ES2015. Before opening a PR be sure to lint any changes by running:
+Code is transpiled from ES6/ES2015. You can lint code by running:
 ```
 $ npm run lint
 ```
