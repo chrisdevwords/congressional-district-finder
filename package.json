@@ -4,7 +4,7 @@
   "description": "a node module for finding a congressional district based on latitude and longitude",
   "main": "./dist/index.js",
   "files": [
-    "./dist/"
+    "dist/"
   ],
   "repository": {
     "type": "git",
