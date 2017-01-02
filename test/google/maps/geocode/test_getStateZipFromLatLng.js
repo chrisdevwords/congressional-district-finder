@@ -5,15 +5,11 @@ import request from 'request-promise-native';
 import sinon from 'sinon';
 
 import getStateZipFromLatLng, {
-    parseLatLngJSON,
     NO_RESULTS_FOUND,
     INVALID_REQUEST,
 }  from '../../../../src/google/maps/geocode/getStateZipFromLatLng';
 
-import mock11211 from '../../../mock/google/maps/geocode/11211.json';
 import mock6085 from '../../../mock/google/maps/geocode/06085.json';
-import mockCanada from '../../../mock/google/maps/geocode/canada.json';
-import mockTeritory from '../../../mock/google/maps/geocode/SanJuan.json';
 import mock404 from '../../../mock/google/maps/geocode/noresults.json';
 import mockError from '../../../mock/google/maps/geocode/invalid.json';
 
@@ -206,46 +202,6 @@ describe('Google geocode helper', () => {
                         done();
                     })
                     .catch(done);
-            });
-        });
-    });
-
-    describe('#parseLatLngJSON', () => {
-
-        context('with a successful US result', () => {
-
-            it('can extract the country', (done) => {
-                const result = parseLatLngJSON(mock11211);
-                expect(result.country).to.eq('US');
-                done();
-            });
-
-            it('can extract a state id', (done) => {
-                const result = parseLatLngJSON(mock11211);
-                expect(result.state).to.eq('NY');
-                done();
-            });
-
-            it('can extract a zip code', (done) => {
-                const result = parseLatLngJSON(mock6085);
-                expect(result.zip).to.eq("06085");
-                done();
-            });
-        });
-
-        context('with a result outside the US', () => {
-            it('can extract the country', (done) => {
-                const result = parseLatLngJSON(mockCanada);
-                expect(result.country).to.eq('CA');
-                done();
-            });
-        });
-
-        context('with a result in a US Territory', () => {
-            it('can extract the country', (done) => {
-                const result = parseLatLngJSON(mockTeritory);
-                expect(result.country).to.eq('PR');
-                done();
             });
         });
     });
