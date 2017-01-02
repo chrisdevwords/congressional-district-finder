@@ -13,6 +13,20 @@ export const INVALID_REQUEST = (lat, lng) =>
     `Invalid parameters for latitude: "${lat}", longitude: "${lng}".`;
 
 
+/**
+ * Uses the Google Maps Geocode endpoint to determine country,
+ * state and zip for a pair of latitude and longitude coordinates.
+ * @see https://maps.googleapis.com/maps/api/geocode/json
+ * @param {number} latitude
+ * @param {number} longitude
+ * @returns {Promise}
+ *     Rejects w/ a 404 if coordinates fail to match a location.
+ *     Rejects w/ a 400 if the coordinates are invalid.
+ *     Resolves w/ the following:
+ *          country {string}
+ *          st {string} - Postal abbreviation if location is in US.
+ *          zip {string} - 5 character zip code if location is in the US.
+ */
 export default function getStateZipFromLatLng(lat, lng) {
 
     if (!isValidGeoCoordinates([lng, lat])) {
