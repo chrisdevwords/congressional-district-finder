@@ -1,0 +1,70 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "377",
+               "short_name" : "377",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Riverside Drive East",
+               "short_name" : "Riverside Dr E",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "City Centre",
+               "short_name" : "City Centre",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Windsor",
+               "short_name" : "Windsor",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Essex County",
+               "short_name" : "Essex County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Ontario",
+               "short_name" : "ON",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Canada",
+               "short_name" : "CA",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "N9A 7H7",
+               "short_name" : "N9A 7H7",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "377 Riverside Dr E, Windsor, ON N9A 7H7, Canada",
+         "geometry" : {
+            "location" : {
+               "lat" : 42.3203332,
+               "lng" : -83.03354639999999
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 42.3216821802915,
+                  "lng" : -83.03219741970848
+               },
+               "southwest" : {
+                  "lat" : 42.3189842197085,
+                  "lng" : -83.0348953802915
+               }
+            }
+         },
+         "partial_match" : true,
+         "place_id" : "ChIJk3w-098sO4gRxcygB4U1h0k",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}

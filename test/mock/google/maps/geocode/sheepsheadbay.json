@@ -1,0 +1,64 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Sheepshead Bay",
+               "short_name" : "Sheepshead Bay",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Brooklyn",
+               "short_name" : "Brooklyn",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Kings County",
+               "short_name" : "Kings County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "New York",
+               "short_name" : "NY",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Sheepshead Bay, Brooklyn, NY, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.6033198,
+                  "lng" : -73.9256371
+               },
+               "southwest" : {
+                  "lat" : 40.582148,
+                  "lng" : -73.96663789999999
+               }
+            },
+            "location" : {
+               "lat" : 40.5975847,
+               "lng" : -73.95361629999999
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.6033198,
+                  "lng" : -73.9256371
+               },
+               "southwest" : {
+                  "lat" : 40.582148,
+                  "lng" : -73.96663789999999
+               }
+            }
+         },
+         "place_id" : "ChIJY5Oi5oVEwokRDOi5AZZRG84",
+         "types" : [ "neighborhood", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

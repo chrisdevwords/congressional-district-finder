@@ -1,0 +1,84 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "166",
+               "short_name" : "166",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "South 4th Street",
+               "short_name" : "S 4th St",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Williamsburg",
+               "short_name" : "Williamsburg",
+               "types" : [ "neighborhood", "political" ]
+            },
+            {
+               "long_name" : "Brooklyn",
+               "short_name" : "Brooklyn",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Kings County",
+               "short_name" : "Kings County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "New York",
+               "short_name" : "NY",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "11211",
+               "short_name" : "11211",
+               "types" : [ "postal_code" ]
+            },
+            {
+               "long_name" : "5376",
+               "short_name" : "5376",
+               "types" : [ "postal_code_suffix" ]
+            }
+         ],
+         "formatted_address" : "166 S 4th St, Brooklyn, NY 11211, USA",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 40.7112153,
+                  "lng" : -73.96130169999999
+               },
+               "southwest" : {
+                  "lat" : 40.711111,
+                  "lng" : -73.96141709999999
+               }
+            },
+            "location" : {
+               "lat" : 40.7111631,
+               "lng" : -73.96135939999999
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.7125121302915,
+                  "lng" : -73.9600104197085
+               },
+               "southwest" : {
+                  "lat" : 40.7098141697085,
+                  "lng" : -73.9627083802915
+               }
+            }
+         },
+         "place_id" : "ChIJA5fdvd9bwokRBzm_wKZ5iyw",
+         "types" : [ "premise" ]
+      }
+   ],
+   "status" : "OK"
+}
