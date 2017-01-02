@@ -31,7 +31,6 @@ $ npm install congressional-district-finder --save
 All methods return promises, using [Request-Promise-Native](https://www.npmjs.com/package/request-promise-native) for various http GET requests.
 
 ### Get a District by Latitude and Longitude
-
 ```js
 var finder = require('congressional-district-finder');
 
@@ -53,6 +52,40 @@ finder.getDistrictByLatLng(31.6538179, -106.5890206)
         //      "The specified latitude: 31.6538179 and longitude: -106.5890206
         //       are for the country: MX. To Find a Congressional District,
         //       please provide coordinates in the US."
+    });
+```
+
+### Get a District by Address
+```js
+finder.getDistrictByAddress('45 Main Street Brooklyn')
+    .then(function(result) {
+        console.log(result.isMatched); // outputs true
+        console.log(result.district.name); //outputs "New York 7th"
+        console.log(result.district.districtCode); //outputs "NY-07"
+    });
+
+```
+If the address is too vague:
+```js
+finder.getDistrictByAddress('Pittsburgh, PA')
+    .catch(function (err) {
+        console.log(err.statusCode); //outputs 400
+        console.log(err.message);
+        // Outputs:
+        //      "The specified address: ''Pittsburgh, PA'' appears to be too vague.
+        //       Try including a street name and number."
+    });
+```
+If the address is outside the US:
+```js
+finder.getDistrictByAddress('3895 Boulevard St-Laurent, Montreal')
+    .catch(function (err) {
+        console.log(err.statusCode); //outputs 404
+        console.log(err.message);
+        // Outputs:
+        //      "The specified address: '3895 Boulevard St-Laurent, Montreal'
+        //       appears to be from the country: CA. To find a Congressional District,
+        //       please provide coordinates in the US. More specific coordinates might also work."
     });
 ```
 

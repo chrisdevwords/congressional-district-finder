@@ -7,6 +7,7 @@ import checkLatLngInDistricts from './checkLatLngInDistricts';
 import getStateZipFromLatLng
     from './google/maps/geocode/getStateZipFromLatLng';
 import getDistrictByLatLng from './getDistrictByLatLng';
+import getDistrictByAddress from './getDistrictByAddress';
 
 
 export {
@@ -16,5 +17,6 @@ export {
     getStateZipFromLatLng,
     checkLatLngInDistrict,
     checkLatLngInDistricts,
-    getDistrictByLatLng
+    getDistrictByLatLng,
+    getDistrictByAddress
 };

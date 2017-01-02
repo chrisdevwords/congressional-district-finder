@@ -5,14 +5,14 @@ import checkLatLngInDistricts from './checkLatLngInDistricts';
 
 
 export const OUTSIDE_US = (address, country) =>
-    `The specified address: '${address}' ` +
+    `The specified address: "${address}" ` +
     `appears to be from the country: ${country}. ` +
     'To Find a Congressional District, ' +
     'please provide coordinates in the US. ' +
     'More specific coordinates might also work.';
 
 export const MORE_SPECIFIC = address =>
-    `The specified address: '${address}' ` +
+    `The specified address: "${address}" ` +
     'appears to be too vague. Try including a street name and number.';
 
 /**
