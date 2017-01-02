@@ -1,1 +1,1 @@
---recursive --compilers js:babel-core/register --timeout=4000
+--recursive --compilers js:babel-core/register --timeout=6000
