@@ -28,11 +28,11 @@ function checkLatLngInDistricts(lat, lng, districts) {
                 if (toCheck.length) {
                     return _checkNextDistrict();
                 }
-                return Promise.reject({
+                throw  {
                     statusCode: 422,
                     // eslint-disable-next-line babel/new-cap
                     message: COORDINATES_NOT_IN_DISTRICTS(lat, lng, districts)
-                });
+                };
             });
 
     return _checkNextDistrict();
