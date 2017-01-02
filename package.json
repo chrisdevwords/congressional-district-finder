@@ -1,6 +1,6 @@
 {
   "name": "congressional-district-finder",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "a node module for finding a congressional district based on latitude and longitude",
   "main": "./dist/index.js",
   "files": [
