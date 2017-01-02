@@ -4,7 +4,7 @@ export default function parseJSON({ results }) {
 
     const [{ address_components, geometry }] = results;
     const components = address_components;
-    const location = { geometry };
+    const { location } = geometry;
 
     let state;
     let zip;

@@ -1,8 +1,6 @@
 
 import mocha from 'mocha';
 import chai from 'chai';
-import request from 'request-promise-native';
-import sinon from 'sinon';
 
 import parseJSON from '../../../../src/google/maps/geocode/parseJSON';
 
@@ -38,6 +36,13 @@ describe('#parseJSON', () => {
             expect(result.zip).to.eq("06085");
             done();
         });
+
+        it('can extract the lat, lng', (done) => {
+            const { location } = parseJSON(mock11211);
+            expect(location.lat).to.eq(40.718119);
+            expect(location.lng).to.eq(-73.95625799999999);
+            done();
+        });
     });
 
     context('with a result outside the US', () => {
@@ -46,12 +51,26 @@ describe('#parseJSON', () => {
             expect(result.country).to.eq('CA');
             done();
         });
+
+        it('can extract the lat, lng', (done) => {
+            const { location } = parseJSON(mockCanada);
+            expect(location.lat).to.eq(62.3809285);
+            expect(location.lng).to.eq(-140.87577);
+            done();
+        });
     });
 
     context('with a result in a US Territory', () => {
         it('can extract the country', (done) => {
             const result = parseJSON(mockTeritory);
             expect(result.country).to.eq('PR');
+            done();
+        });
+
+        it('can extract the lat, lng', (done) => {
+            const { location } = parseJSON(mockTeritory);
+            expect(location.lat).to.eq(18.3849);
+            expect(location.lng).to.eq(-66.1276702);
             done();
         });
     });
