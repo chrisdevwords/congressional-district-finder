@@ -6,8 +6,8 @@ import checkLatLngInDistricts from './checkLatLngInDistricts';
 
 
 export const OUTSIDE_US = (lat, lng, country) =>
-    `The specified latitude: ${lat} and ` +
-    `longitude: ${lng} are for the country: ${country}, ` +
+    `The specified latitude: "${lat}" and ` +
+    `longitude: "${lng}" are for the country: ${country}. ` +
     'To Find a Congressional District, please provide coordinates in the US.';
 
 
