@@ -3,6 +3,7 @@
 export default function parseJSON({ results }) {
 
     const [{ address_components, geometry }] = results;
+    // eslint-disable-next-line camelcase
     const components = address_components;
     const { location } = geometry;
 
