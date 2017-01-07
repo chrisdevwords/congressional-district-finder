@@ -43,8 +43,6 @@ finder.getDistrictByLatLng(40.718031, -73.9583047)
 ```
 If coordinates are outside the US:
 ```js
-var finder = require('congressional-district-finder');
-
 finder.getDistrictByLatLng(31.6538179, -106.5890206)
     .catch(function(err) {
         console.log(err.message);
@@ -88,6 +86,23 @@ finder.getDistrictByAddress('3895 Boulevard St-Laurent, Montreal')
         //       please provide coordinates in the US. More specific coordinates might also work."
     });
 ```
+
+#### Handling the 404 for DC's At-Large District
+Currently the repository of GeoJSON for 2016's Congressional Districts doesn't contain a district shape for DC's at-large district (DC-0 or DC-AL).
+To handle this situation, you can check the message on a 404 response against the template used to format the message for this particular error.
+```js
+finder.getDistrictByAddress('1600 Pennsylvania Avenue DC')
+    .catch(function(err) {
+        if (err.message === finder.DISTRICT_NOT_FOUND('DC-0')) {
+            throw new Error('Taxation without representation.');
+        }
+        throw err;
+    })
+    .catch(function(err) {
+        console.log(err.message); // Outputs: "Taxation without representation."
+    });
+```
+Since DC is an at-large district, it's safe to assume that the provided coordinates reside in this district.
 
 ### Other Methods
 
