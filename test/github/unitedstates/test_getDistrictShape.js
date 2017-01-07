@@ -6,7 +6,8 @@ import sinon from 'sinon';
 
 import getDistrictShape, {
     parseDistrictShape,
-    UNEXPECTED_DISTRICT_JSON
+    UNEXPECTED_DISTRICT_JSON,
+    DISTRICT_NOT_FOUND
 }  from '../../../src/github/unitedstates/getDistrictShape';
 
 import mockWV3 from '../../mock/github/unitedstates/districts/WV-3.json';
@@ -81,9 +82,73 @@ describe('#getDistrictShape', () => {
                 .then(() => {
                     done(Error('Promise should not resolve'));
                 })
-                .catch((err) => {
-                    expect(err.statusCode)
+                .catch(({ statusCode }) => {
+                    expect(statusCode)
                         .to.eq(404);
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('throws a message indicating the district wasn\'t found.', (done) => {
+
+            const district = 'DC-0';
+
+            getDistrictShape(district)
+                .then(() => {
+                    done(Error('Promise should not resolve'));
+                })
+                .catch(({ message }) => {
+                    expect(message)
+                        .to.eq(DISTRICT_NOT_FOUND(district));
+                    done();
+                })
+                .catch(done);
+
+        });
+    });
+
+    context('with a non 404 error', () => {
+
+        const authFailedStatusCode = 401;
+        const authFailedMessage = 'Authentication failed. Invalid credentials.';
+
+        beforeEach((done) => {
+            sinon
+                .stub(request, 'get')
+                .returns(Promise.reject({
+                    statusCode: authFailedStatusCode,
+                    message: authFailedMessage
+                }));
+            done();
+        });
+
+        afterEach((done) => {
+            request.get.restore();
+            done();
+        });
+
+        it('rejects the promise with the statusCode', (done) => {
+            getDistrictShape('PA-1')
+                .then(() => {
+                    done(Error('Promise should not resolve'));
+                })
+                .catch(({ statusCode }) => {
+                    expect(statusCode)
+                        .to.eq(statusCode);
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('rejects the promise with the message', (done) => {
+            getDistrictShape('PA-1')
+                .then(() => {
+                    done(Error('Promise should not resolve'));
+                })
+                .catch(({ message }) => {
+                    expect(message)
+                        .to.eq(authFailedMessage);
                     done();
                 })
                 .catch(done);

@@ -6,6 +6,8 @@ export const endpoint = district =>
     `https://theunitedstates.io/districts/cds/2016/${district}/shape.geojson`;
 
 export const UNEXPECTED_DISTRICT_JSON = 'Unexpected JSON.';
+export const DISTRICT_NOT_FOUND = district =>
+    `District: "${district}" not found.`;
 
 export function parseDistrictShape({ geometry, properties }) {
 
@@ -33,5 +35,15 @@ export default function getDistrictShape(district) {
 
     return request
         .get(options)
+        .catch((err) => {
+            const { statusCode } = err;
+            if (statusCode === 404) {
+                // eslint-disable-next-line babel/new-cap
+                const error = new Error(DISTRICT_NOT_FOUND(district));
+                error.statusCode = 404;
+                throw error;
+            }
+            throw err;
+        })
         .then(parseDistrictShape);
 }

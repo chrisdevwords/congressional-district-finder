@@ -45,5 +45,5 @@ export default function parseJSON({ results }) {
         state,
         location,
         country
-    }
+    };
 }
