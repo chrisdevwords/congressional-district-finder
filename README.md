@@ -87,8 +87,8 @@ finder.getDistrictByAddress('3895 Boulevard St-Laurent, Montreal')
     });
 ```
 
-#### Handling the 404 for DC's At-Large District
-Currently the repository of GeoJSON for 2016's Congressional Districts doesn't contain a district shape for DC's at-large district (DC-0 or DC-AL).
+#### Handling the 404 for DC and Puerto Rico's At-Large Districts
+Currently the [repository of GeoJSON for 2016 congressional districts](https://api.github.com/repos/unitedstates/districts/contents/cds/2016?ref=gh-pages) doesn't contain a district shape for DC's at-large district (DC-0 or DC-AL).
 To handle this situation, you can check the message on a 404 response against the template used to format the message for this particular error.
 ```js
 finder.getDistrictByAddress('1600 Pennsylvania Avenue DC')
@@ -103,6 +103,34 @@ finder.getDistrictByAddress('1600 Pennsylvania Avenue DC')
     });
 ```
 Since DC is an at-large district, it's safe to assume that the provided coordinates reside in this district.
+
+Likewise, because it's a territory, Puerto Rico will also throw a 404. While Puerto Rico's at-large district is also missing from the [2016 GEOJson repo](https://api.github.com/repos/unitedstates/districts/contents/cds/2016?ref=gh-pages), 
+this particular error is thrown because it doesn't reside in the US. It can be detected and handled as such:
+````js
+var address = 'San Juan, Puerto Rico';
+finder.getDistrictByAddress(address)
+    .catch(function(err) {
+        if (err.statusCode != 404) {
+            throw err;
+        }
+        switch (err.message) {
+            case finder.ADDRESS_OUTSIDE_US(address, 'PR') :
+            return Promise.resolve({
+                district: {
+                    districtCode: 'PR-AL',
+                    name: 'Puerto Rico At-Large'
+                }
+            });
+            default:
+                throw err;
+        }
+    })
+    .then(function(result) {
+        console.log(result.district.name); // Outputs "Puerto Rico At-Large"
+    });
+````
+
+Error templates are also exported for COORDS_OUTSIDE_US: 404, and ADDRESS_TOO_VAGUE: 400.
 
 ### Other Methods
 
