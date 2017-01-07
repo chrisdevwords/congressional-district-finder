@@ -6,12 +6,20 @@ import checkLatLngInDistrict from './checkLatLngInDistrict';
 import checkLatLngInDistricts from './checkLatLngInDistricts';
 import getStateZipFromLatLng
     from './google/maps/geocode/getStateZipFromLatLng';
-import getDistrictByLatLng from './getDistrictByLatLng';
-import getDistrictByAddress from './getDistrictByAddress';
 import { DISTRICT_NOT_FOUND } from './github/unitedstates/getDistrictShape';
+import getDistrictByLatLng, {
+    COORDS_OUTSIDE_US
+} from './getDistrictByLatLng';
+import getDistrictByAddress, {
+    ADDRESS_OUTSIDE_US,
+    ADDRESS_MORE_SPECIFIC
+} from './getDistrictByAddress';
 
 
 export {
+    ADDRESS_OUTSIDE_US,
+    ADDRESS_MORE_SPECIFIC,
+    COORDS_OUTSIDE_US,
     DISTRICT_NOT_FOUND,
     getDistricts,
     getDistrictsByState,

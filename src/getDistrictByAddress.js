@@ -4,14 +4,14 @@ import getLatLngFromAddress from './google/maps/geocode/getLatLngFromAddress';
 import checkLatLngInDistricts from './checkLatLngInDistricts';
 
 
-export const OUTSIDE_US = (address, country) =>
+export const ADDRESS_OUTSIDE_US = (address, country) =>
     `The specified address: "${address}" ` +
     `appears to be from the country: ${country}. ` +
     'To Find a Congressional District, ' +
     'please provide coordinates in the US. ' +
     'More specific coordinates might also work.';
 
-export const MORE_SPECIFIC = address =>
+export const ADDRESS_MORE_SPECIFIC = address =>
     `The specified address: "${address}" ` +
     'appears to be too vague. Try including a street name and number.';
 
@@ -52,7 +52,7 @@ export default function getDistrictByAddress(address) {
                 return Promise.reject({
                     statusCode: 404,
                     // eslint-disable-next-line babel/new-cap
-                    message: OUTSIDE_US(address, country)
+                    message: ADDRESS_OUTSIDE_US(address, country)
                 });
             }
 
@@ -60,7 +60,7 @@ export default function getDistrictByAddress(address) {
                 return Promise.reject({
                     statusCode: 400,
                     // eslint-disable-next-line babel/new-cap
-                    message: MORE_SPECIFIC(address)
+                    message: ADDRESS_MORE_SPECIFIC(address)
                 });
             }
 

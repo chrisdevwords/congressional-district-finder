@@ -7,7 +7,7 @@ import sinon from 'sinon';
 
 import { INVALID_REQUEST } from '../src/google/maps/geocode/getStateZipFromLatLng';
 import getDistrictByLatLng, {
-    OUTSIDE_US,
+    COORDS_OUTSIDE_US,
 } from '../src/getDistrictByLatLng';
 
 const { describe, it, beforeEach, afterEach } = mocha;
@@ -71,7 +71,7 @@ describe('#getDistrictByLatLng', () => {
                 })
                 .catch(({ statusCode, message }) => {
                     expect(statusCode).to.eq(404);
-                    expect(message).to.eq(OUTSIDE_US(lat, lng, 'MX'));
+                    expect(message).to.eq(COORDS_OUTSIDE_US(lat, lng, 'MX'));
                     done();
                 })
                 .catch(done);

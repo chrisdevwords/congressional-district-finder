@@ -4,8 +4,8 @@ import mocha from 'mocha';
 import chai from 'chai';
 
 import getDistrictByAddress, {
-    OUTSIDE_US,
-    MORE_SPECIFIC
+    ADDRESS_OUTSIDE_US,
+    ADDRESS_MORE_SPECIFIC
 } from '../src/getDistrictByAddress';
 
 const { describe, it } = mocha;
@@ -41,7 +41,7 @@ describe('#getDistrictByAddress', () => {
                     expect(statusCode)
                         .to.eq(400);
                     expect(message)
-                        .to.eq(MORE_SPECIFIC(address));
+                        .to.eq(ADDRESS_MORE_SPECIFIC(address));
                     done();
                 })
                 .catch(done);
@@ -61,7 +61,7 @@ describe('#getDistrictByAddress', () => {
                     expect(statusCode)
                         .to.eq(404);
                     expect(message)
-                        .to.eq(OUTSIDE_US(address, 'CA'));
+                        .to.eq(ADDRESS_OUTSIDE_US(address, 'CA'));
                     done();
                 })
                 .catch(done);
