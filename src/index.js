@@ -8,9 +8,11 @@ import getStateZipFromLatLng
     from './google/maps/geocode/getStateZipFromLatLng';
 import getDistrictByLatLng from './getDistrictByLatLng';
 import getDistrictByAddress from './getDistrictByAddress';
+import { DISTRICT_NOT_FOUND } from './github/unitedstates/getDistrictShape';
 
 
 export {
+    DISTRICT_NOT_FOUND,
     getDistricts,
     getDistrictsByState,
     checkLatLngInState,
