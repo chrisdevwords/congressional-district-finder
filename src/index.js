@@ -15,6 +15,8 @@ import getDistrictByAddress, {
     ADDRESS_MORE_SPECIFIC
 } from './getDistrictByAddress';
 
+import isLatLngInPolygon from './geolib/isLatLngInPolygon';
+import isLatLngInMultiPolygon from './geolib/isLatLngInMultiPolygon';
 
 export {
     ADDRESS_OUTSIDE_US,
@@ -28,5 +30,7 @@ export {
     checkLatLngInDistrict,
     checkLatLngInDistricts,
     getDistrictByLatLng,
-    getDistrictByAddress
+    getDistrictByAddress,
+    isLatLngInPolygon,
+    isLatLngInMultiPolygon
 };
